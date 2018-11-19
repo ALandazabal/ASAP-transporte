@@ -1,0 +1,235 @@
+/*------------- Body -------------*/
+@font-face {
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: normal;
+	src: url("../fonts/poppins/Poppins-Regular.ttf") format('truetype');
+}
+@font-face {
+	font-family: 'PoppinsItalic';
+	font-style: normal;
+	font-weight: normal;
+	src: url("../fonts/poppins/Poppins-Italic.ttf") format('truetype');
+}
+
+
+@font-face {
+	font-family: 'PoppinsBoldItalic';
+	font-style: normal;
+	font-weight: normal;
+	src: url("../fonts/poppins/Poppins-Bold-Italic.ttf") format('truetype');
+}
+@font-face {
+	font-family: 'PoppinsBold';
+	src: url("../fonts/poppins/Poppins-Bold.ttf") format('truetype');
+}
+
+
+@font-face {
+	font-family: 'PoppinsLightItalic';
+	src: url("../fonts/poppins/Poppins-Light-Italic.ttf") format('truetype');
+}
+@font-face {
+	font-family: 'PoppinsLight';
+	src: url("../fonts/poppins/Poppins-Light.ttf") format('truetype');
+}
+/*------------- Base -------------*/
+section {padding-top: 90px;}
+*{
+	font-family: 'Poppins', sans-serif;
+}
+b, h1, h2, h3{
+	font-family: 'PoppinsBold', sans-serif;
+}
+/*------------- Header -------------*/
+.navbar-brand{
+	height: auto;
+	padding: 5px 15px;
+}
+.nav.navbar-nav{
+	margin: 20px 0px;
+}
+.logo{
+	height: 80px;
+}
+
+/*------------- Body -------------*/
+section .container-fluid{
+	padding: 15px;
+}
+section .container-fluid h1{
+	font-size: 54px;
+}
+section .container-fluid h2{
+	font-size: 54px;
+}
+section .container-fluid h3{
+	font-size: 32px;
+}
+.cont-light-grey{
+	background-color: #f1f1f1;
+}
+.cont-dark-grey{
+	background-color: #616161;
+	color: #fff;
+}
+.cont-dark-blue{
+	background-color: #086891;
+	color: #fff;
+}
+.cont-light-blue{
+	background-color: #0d9cda;
+}
+section .jumbotron{
+	margin: 0px;
+}
+.icons{
+	font-size: 4.7em;
+	height: 332px;
+}
+.register.register.register{
+	padding: 30px 15px 30px 30px;
+	color: #fff;
+	background: #086891;
+	background-size: cover;
+}
+
+/*------------- Owl Carousel 	linear-gradient(
+		rgba(0, 0, 0, 0), 
+		rgba(0, 0, 0, 0)
+	),-------------*/
+.owl-cars.owl-carousel .owl-item{
+	color: #fff;
+	height: 500px;
+}
+.owl-cars.owl-carousel .owl-item .item{
+	padding: 0px;
+	height: 100%;
+	background-size: cover;
+}
+.owl-cars.owl-carousel .owl-item .test{
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.5);
+}
+.owl-cars.owl-carousel .owl-item img, .owl-carousel .owl-item .test{
+	float: left;
+
+}
+.owl-cars.owl-carousel .owl-item img{
+	width: 100%;
+	margin-top: -90px;
+}
+.owl-cars.owl-carousel .owl-item h3{
+	position: fixed;
+    top: 50px;
+    left: 50px;
+}
+.owl-cars.owl-carousel .owl-item span{
+	position: fixed;
+	top: 90px;
+    left: 50px;
+}
+
+.owl-cars .owl-nav{
+	display: none;
+}
+.owl-theme .owl-dots{
+	display: none;
+}
+.cont-1.cont-1{
+	padding: 60px;
+}
+.ext>h2{
+	margin-bottom: 40px;
+}
+.cont-2.cont-2{
+	padding: 20px 0px 0px;
+}
+.cont-3.cont-3{
+	padding: 0px;
+}
+.container-fluid.banner-cont{
+	padding: 80px 50px;
+	background: linear-gradient(
+		rgba(0, 0, 0, 0.7), 
+		rgba(0, 0, 0, 0.7)
+	),
+	url(../img/banner1.jpg) center;
+	background-size: cover;
+	height: 250px;
+}
+.car-box{
+	height: 300px;
+	background: url(../img/carimages/car-form.png) center;
+	background-repeat: no-repeat;
+}
+.google-map{
+	width: 100%;
+	height: 400px;
+}
+
+.container-fluid.banner-serv{
+	padding: 80px 50px;
+	background: linear-gradient(
+		rgba(0, 0, 0, 0.7), 
+		rgba(0, 0, 0, 0.7)
+	),
+	url(../img/banner.jpg) center;
+	background-size: cover;
+	height: 250px;
+}
+.jumbotron.services{
+	padding: 30px;
+	height: 380px;
+}
+.jumbotron.services img{
+	width: 180px;
+}
+/*------------- Footer -------------*/
+footer .container-fluid{
+	background-color: #0d9cda;
+	overflow: auto;
+}
+footer .container-fluid .row{
+	padding: 20px;
+	color: #fff;
+}
+footer .container-fluid .row a{
+	color: #fff;
+	overflow: auto;
+}
+.foot-box ul{
+	list-style: none;
+	padding: 0px;
+}
+.foot-box .mini{
+	display: block;
+	width: 80px;
+	float: left;
+	margin-left: 10px;
+}
+.footer-copyright{
+	background-color: #000;
+}
+
+.social-item{
+	width: 40px;
+	height: 40px;
+	color: #fff;
+	text-align: center;
+	font-size: 1.7em;
+	float: left;
+}
+.social-item i{
+	line-height: 1.6em
+}
+.social-item#face{
+	background-color: #3d5a98;
+}
+.social-item#insta{
+	background-color: #fb0074;
+}
+.social-item#twit{
+	background-color: #55acee;
+}

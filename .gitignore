@@ -1,0 +1,17 @@
+/node_modules
+/storage/*.key
+/vendor
+/.idea
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+*.sqlite
+
+public/storage
+public/hot
+storage/*.key
+.env
+Homestead.yaml
+Homestead.json
+/.vagrant
