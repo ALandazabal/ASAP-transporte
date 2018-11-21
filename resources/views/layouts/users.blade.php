@@ -71,6 +71,7 @@
 </section>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/events.js') }}"></script>
     <script type="text/javascript" src="{{asset('js/jquery.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
     <script src="{{asset('owlcarousel/owl.carousel.min.js')}}"></script>
