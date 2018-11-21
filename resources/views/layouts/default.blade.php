@@ -15,7 +15,7 @@
 	<header>
 		@include('includes.header')
 	</header>
-	<section>
+	<section class="container" id="container">
 		@yield('content')
 	</section>
 	@include('includes.footer')

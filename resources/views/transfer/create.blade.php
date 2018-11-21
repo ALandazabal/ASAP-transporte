@@ -1,7 +1,7 @@
 @extends('layouts.default')
 @section('content')
 <div class="container">
-	<div class="col-md-4 col-md-offset-4 text-center">
+	<div class="col-md-4 col-md-offset-4" id="formEnvio">
 		@if (count($errors) > 0)
 		<div class="alert alert-danger">
 			<strong>Error!</strong> Revise los campos obligatorios.<br><br>
@@ -19,7 +19,7 @@
 		@endif
 
 		<div class="panel panel-default">
-			<div class="panel-heading">
+			<div class="panel-heading" id="formTitle">
 				<h3 class="panel-title">Solicitud</h3>
 			</div>
 			<div class="panel-body">					
@@ -62,6 +62,40 @@
 						</div>
 						<div class="row">
 							<div class="col-xs-12">
+								<div class="form-group">
+									<label for="passenger">Número de pasajeros:</label>
+									<input type="number" name="passenger" id="passenger" min="1" max="8">
+								</div>
+							</div>
+						</div>
+						<!-- <div class="row">
+							<div class="col-xs-12">
+								<div class="form-group">
+									<label for="Vehicle">Número de pasajeros:</label>
+									<select class="form-control" name="passenger">
+										@foreach( $passengers as $passenger)
+										<option value="{{ $passenger->id }}">{{ $passenger->cantidad }}</option>
+										@endforeach
+									</select>
+								</div>
+							</div>
+						</div> -->
+						<div class="row">
+							<div class="col-xs-12">
+								<div class="form-group">
+									<label><input type="checkbox" id="travelType" value="Tipo de viaje"> Ida y vuelta</label><br>
+								</div>
+							</div>
+						</div>
+						<!-- <div class="row">
+							<div class="col-xs-12">
+								<div class="form-group">
+									<label><input type="checkbox" id="parking" value="Espera en estacionamiento"> Espera en aeropuerto</label><br>
+								</div>
+							</div>
+						</div> -->
+						<div class="row text-center">
+							<div class="col-xs-12">							
 								<button class="btn btn-success" type="submit">Solicitar</button>
 							</div>	
 						</div>

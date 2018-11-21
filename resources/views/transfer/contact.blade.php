@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-	<div class="col-md-4 col-md-offset-4 text-center">
+	<div class="col-md-4 col-md-offset-4" id="formContact">
 		@if (count($errors) > 0)
 		<div class="alert alert-danger">
 			<strong>Error!</strong> Revise los campos obligatorios.<br><br>
@@ -20,7 +20,7 @@
 		@endif
 
 		<div class="panel panel-default">
-			<div class="panel-heading">
+			<div class="panel-heading" id="formContactTitle">
 				<h3 class="panel-title">Solicitud <br><sub>(Información de contacto)</sub></h3>
 			</div>
 			<div class="panel-body">					
@@ -53,21 +53,28 @@
 								</div>
 							</div>
 						</div>
+
 						<div class="row">
 							<div class="col-xs-12">
 								<div class="form-group">
-									<label for="pago">Método de Pago</label>
-									<br>
-									<input type="radio" class="" name="pago" value="webpay"> WebPay+
-									<br>
-									<input type="radio" class="" name="pago" value="paypal"> PayPal
+									<div class="col-md-12">
+										<label for="pago">Método de Pago</label>
+									</div>
+									<div class="col-md-6">
+										<input type="radio" class="" name="pago" value="webpay"> WebPay+
+									</div>						
+									<div class="col-md-6">
+										<input type="radio" class="" name="pago" value="paypal"> PayPal
+									</div>						
 								</div>
 							</div>
 						</div>
+
 						{{-- Valores traidos del otro fomulario--}}
 						<input type="hidden" name="comuna" value="{{ $form_data['comuna'] }}">
 						<input type="hidden" name="vehicle" value="{{ $form_data['vehicle'] }}">
-						<div class="row">
+
+						<div class="row buttonSend">
 							<div class="col-xs-12">
 								<button class="btn btn-success" type="submit">Solicitar</button>
 							</div>	

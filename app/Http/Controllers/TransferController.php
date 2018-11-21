@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Transfer;
 use App\Vehicle;
 use App\Comuna;
+use App\Passenger;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -31,8 +32,9 @@ class TransferController extends Controller
     {
         $vehicles = Vehicle::all();
         $comunas = Comuna::all();
+        $passengers = Passenger::all();
 
-        return view('transfer.create', compact('vehicles','comunas'));
+        return view('transfer.create', compact('vehicles','comunas','passengers'));
     }
 
     /**

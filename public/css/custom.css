@@ -233,3 +233,27 @@ footer .container-fluid .row a{
 .social-item#twit{
 	background-color: #55acee;
 }
+
+/**************/
+#formEnvio, #formContact{
+	margin-top: 50px;
+}
+#formTitle, #formContactTitle{
+	color: #fff;
+	background-color: #0098da;
+	text-align: center;
+}
+#passenger{
+	width: 50px;
+	text-align: center;
+	float: right;
+}
+#container{
+	width: auto;
+	padding-right: 0;
+	padding-left: 0;
+}
+.buttonSend{
+	text-align: center;
+	margin-top: 15px;
+}
