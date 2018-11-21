@@ -25,7 +25,6 @@ Las tareas inmediatas a resolver:
 
 - Añadir CRUD para **Reservas**?.
 - Añadir CRUD para **Pagos**?.
-- ~~Añadir relaciones **Transfers**~~.
 - Añadir relaciónes de **Reservas**.
 
 ## Contributing

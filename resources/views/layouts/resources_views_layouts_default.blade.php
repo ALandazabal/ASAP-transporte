@@ -15,12 +15,10 @@
 	<header>
 		@include('includes.header')
 	</header>
-	<section class="container" id="container">
+	<section>
 		@yield('content')
 	</section>
 	@include('includes.footer')
-	<!-- <script type="text/javascript" src="{{asset('js/jquery.min.js')}}"></script> -->
-	<script type="text/javascript" src="{{asset('js/events.js')}}"></script>
 	<script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
 	@yield('scripts')
 </body>
