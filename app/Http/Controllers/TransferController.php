@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Transfer;
 use App\Vehicle;
 use App\Comuna;
+use App\Tviaje;
 use App\Passenger;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class TransferController extends Controller
 {
@@ -32,9 +34,9 @@ class TransferController extends Controller
     {
         $vehicles = Vehicle::all();
         $comunas = Comuna::all();
-        $passengers = Passenger::all();
+        $tposviaje = Tviaje::all();
 
-        return view('transfer.create', compact('vehicles','comunas','passengers'));
+        return view('transfer.create', compact('vehicles','comunas', 'tposviaje'));
     }
 
     /**
@@ -45,21 +47,50 @@ class TransferController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate(['vehicle' => 'required', 'comuna' => 'required', 'name' => 'required', 'email' => 'required|email', 'date' => 'required|date', 'time' => 'required']);
+        $request->validate(['vehicle' => 'required', 'comuna' => 'required', 'tviaje' => 'required', 'name' => 'required', 'email' => 'required|email', 'date' => 'required|date', 'time' => 'required']);
+
+        $comuna = $request->input('comuna');
+        $tviaje = $request->input('tviaje');
+
+        
+
+        $servicio = DB::table('servicios')->where('id', 3)->first();
+
+        $cuotaPax = 0;
+        if($request->input('passenger') > 4){
+            $cuotaPax = ($request->input('passenger') - 4) * $servicio->price;
+        }
+
+        
+
+        $serviciog = DB::table('servicios')->where('id', 2)->first();
+
+        $cuotaGuia = 0;
+        if($request->input('sguia') == 1 ){
+            $cuotaGuia = $serviciog->price;
+        }
+
+
+
+        $preciod = DB::table('precios')->where([['comuna_id', $comuna],['tviaje_id', $tviaje],])->first();
 
         $temp = new Transfer();
         $temp->vehicle()->associate($request->get('vehicle'));
-        $temp->comuna()->associate($request->get('comuna'));
+
+        /*$temp->comuna()->associate($request->get('comuna'));*/
+
+        $temp->precio_id = $preciod->id;
         $temp->user()->associate($request->user()->id);
         $temp->name = $request->get('name');
         $temp->email = $request->get('email');
+        $temp->passengers = $request->input('passenger');
         $temp->date_pick = $request->get('date');
         $temp->time_pick = $request->get('time');
-        //$temp->price = $request->get('price');
-        $temp->price = 100;
+        $total = $preciod->precio + $cuotaPax + $cuotaGuia;
+        $temp->price = $total;
         $temp->save();
 
-        return redirect()->route('transfer.create')->with('success', 'Se envió el formulario.');
+        return redirect()->route('transfer.create')->with('success', 'Se envió el formulario.  El total fue de: '.$total);
     }
 
     /**

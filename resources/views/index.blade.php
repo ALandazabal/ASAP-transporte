@@ -41,8 +41,10 @@
 			<div class="item">
 				<div class="test">
 					<img src="../img/carimages/{{ $slide->photo }}">
-					<h3>{{ $slide->title }}</h3>
-					<span class="quote">Pasajeros: {{ $slide->description }}</span>
+					<div class="etiquetaImg">
+						<h3>{{ $slide->title }}</h3>
+						<span class="quote">Pasajeros: {{ $slide->description }}</span>
+					</div>
 				</div>
 			</div>
 			@endforeach
@@ -165,10 +167,10 @@
 	</div>
 	<div class="col-md-6">
 		<form>
-			<div class="col-md-10">
+			<div class="col-md-9">
 				<input type="text" class="form-control" placeholder="Ingrese su E-mail" name="">
 			</div>
-			<div class="col-md-2">
+			<div class="col-md-3">
 				<a href="{{ route('register') }}" class="btn btn-default">Registrate!</a>
 			</div>
 		</form>

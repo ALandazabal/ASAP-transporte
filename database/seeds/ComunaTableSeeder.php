@@ -12,58 +12,53 @@ class ComunaTableSeeder extends Seeder
      */
     public function run()
     {
-        /*$comuna = new Comuna();
-        $comuna->name = "Santiago";
-        $comuna->description = "Santiago, Chile";
-        $comuna->price = 100;
+
+        $comuna = new Comuna();
+        $comuna->name = "VALPARAISO";
         $comuna->save();
 
         $comuna = new Comuna();
-        $comuna->name = "Chiloé";
-        $comuna->description = "Chiloé, Chile";
-        $comuna->price = 300;
-        $comuna->save();*/
-
-        $comuna = new Comuna();
-        $comuna->name = "AERO A VALPARAISO";
-        $comuna->description = "SOLO IDA";
-        $comuna->price = 100000;
+        $comuna->name = "VIÑA DEL MAR";
         $comuna->save();
 
         $comuna = new Comuna();
-        $comuna->name = "AERO A VIÑA DEL MAR";
-        $comuna->description = "SOLO IDA";
-        $comuna->price = 110000;
+        $comuna->name = "PORTILLO";
         $comuna->save();
 
         $comuna = new Comuna();
-        $comuna->name = "AERO A FARELLONES";
-        $comuna->description = "IDA Y VUELTA";
-        $comuna->price = 170000;
+        $comuna->name = "VALLE NEVADO";
         $comuna->save();
 
         $comuna = new Comuna();
-        $comuna->name = "AERO A PIRQUE";
-        $comuna->description = "SOLO IDA";
-        $comuna->price = 60000;
+        $comuna->name = "FARE/PARVA/COLORADO";
         $comuna->save();
 
         $comuna = new Comuna();
-        $comuna->name = "AERO A LOS ANDES";
-        $comuna->description = "SOLO IDA";
-        $comuna->price = 85000;
+        $comuna->name = "PIRQUE CONCHA TORO/SANTA RITA";
         $comuna->save();
 
         $comuna = new Comuna();
-        $comuna->name = "AERO A CAJON DEL MAIPO";
-        $comuna->description = "SOLO IDA";
-        $comuna->price = 50000;
+        $comuna->name = "COLCHAGUA STA CRUZ/VIU MONETT/MONTES";
         $comuna->save();
 
         $comuna = new Comuna();
-        $comuna->name = "AERO A EL EMBALSE DEL YESO";
-        $comuna->description = "IDA Y VUELTA";
-        $comuna->price = 200000;
+        $comuna->name = "CITY TOUR";
+        $comuna->save();
+
+        $comuna = new Comuna();
+        $comuna->name = "CAJON DEL MAIPO";
+        $comuna->save();
+
+        $comuna = new Comuna();
+        $comuna->name = "EMBALSE EL YESO";
+        $comuna->save();
+
+        $comuna = new Comuna();
+        $comuna->name = "COMPRAS MALL/OUTLET";
+        $comuna->save();
+
+        $comuna = new Comuna();
+        $comuna->name = "LOS ANDES";
         $comuna->save();
     }
 }

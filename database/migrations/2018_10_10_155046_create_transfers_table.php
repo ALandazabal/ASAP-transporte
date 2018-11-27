@@ -16,11 +16,13 @@ class CreateTransfersTable extends Migration
         Schema::create('transfers', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('vehicle_id')->unsigned();
-            $table->integer('comuna_id')->unsigned();
+            $table->integer('precio_id')->unsigned();
             $table->integer('user_id')->unsigned();
 
             $table->string('name');
             $table->string('email');
+
+            $table->integer('passengers');
 
             $table->date('date_pick');
             $table->time('time_pick');
@@ -28,7 +30,7 @@ class CreateTransfersTable extends Migration
             $table->float('price');
 
             $table->foreign('vehicle_id')->references('id')->on('vehicles');
-            $table->foreign('comuna_id')->references('id')->on('comunas');
+            $table->foreign('precio_id')->references('id')->on('precios');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });

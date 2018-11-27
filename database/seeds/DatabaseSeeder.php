@@ -17,6 +17,12 @@ class DatabaseSeeder extends Seeder
 
 	    $this->call(ComunaTableSeeder::class);
 
-	    $this->call(PassengerTableSeeder::class);
+	    $this->call(ServicioTableSeeder::class);
+
+	    $this->call(TviajeTableSeeder::class);
+
+	    $this->call(MpagoTableSeeder::class);
+
+	    $this->call(PreciosTableSeeder::class);
 	}
 }

@@ -1,7 +1,7 @@
 @extends('layouts.default')
 @section('content')
 <div class="container">
-	<div class="col-md-4 col-md-offset-4" id="formEnvio">
+	<div class="col-md-5 col-md-offset-4" id="formEnvio">
 		@if (count($errors) > 0)
 		<div class="alert alert-danger">
 			<strong>Error!</strong> Revise los campos obligatorios.<br><br>
@@ -51,6 +51,18 @@
 						<div class="row">
 							<div class="col-xs-12">
 								<div class="form-group">
+									<label for="tviaje">Tipo de servicio:</label>
+									<select class="form-control" name="tviaje">
+										@foreach( $tposviaje as $tviaje)
+										<option value="{{ $tviaje->id }}">{{ $tviaje->descripcion }}</option>
+										@endforeach
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								<div class="form-group">
 									<label for="Vehicle">Vehículo:</label>
 									<select class="form-control" name="vehicle">
 										@foreach( $vehicles as $vehicle)
@@ -61,39 +73,27 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-xs-12">
+							<div class="col-xs-8">
 								<div class="form-group">
 									<label for="passenger">Número de pasajeros:</label>
-									<input type="number" name="passenger" id="passenger" min="1" max="8">
+									<input type="number" name="passenger" id="passenger" min="1" max="8" value="1">
 								</div>
 							</div>
 						</div>
 						<!-- <div class="row">
 							<div class="col-xs-12">
 								<div class="form-group">
-									<label for="Vehicle">Número de pasajeros:</label>
-									<select class="form-control" name="passenger">
-										@foreach( $passengers as $passenger)
-										<option value="{{ $passenger->id }}">{{ $passenger->cantidad }}</option>
-										@endforeach
-									</select>
+									<label><input type="checkbox" id="travelType" value="Tipo de viaje"> Ida y vuelta</label><br>
 								</div>
 							</div>
 						</div> -->
 						<div class="row">
 							<div class="col-xs-12">
 								<div class="form-group">
-									<label><input type="checkbox" id="travelType" value="Tipo de viaje"> Ida y vuelta</label><br>
+									<input type="checkbox" name="sguia" id="sguia" value="2"> <label>Servicio guía de idioma</label><br>
 								</div>
 							</div>
 						</div>
-						<!-- <div class="row">
-							<div class="col-xs-12">
-								<div class="form-group">
-									<label><input type="checkbox" id="parking" value="Espera en estacionamiento"> Espera en aeropuerto</label><br>
-								</div>
-							</div>
-						</div> -->
 						<div class="row text-center">
 							<div class="col-xs-12">							
 								<button class="btn btn-success" type="submit">Solicitar</button>

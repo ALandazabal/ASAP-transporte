@@ -72,7 +72,21 @@
 
 						{{-- Valores traidos del otro fomulario--}}
 						<input type="hidden" name="comuna" value="{{ $form_data['comuna'] }}">
+						<input type="hidden" name="tviaje" value="{{ $form_data['tviaje'] }}">
 						<input type="hidden" name="vehicle" value="{{ $form_data['vehicle'] }}">
+						<input type="hidden" name="passenger" value="{{ $form_data['passenger'] }}">
+						<?php 
+							if(isset($form_data['sguia'])){
+						?>
+								<input type="hidden" name="sguia" value="1">
+						<?php
+							}else{
+						?>
+								<input type="hidden" name="sguia" value="0">
+						<?php
+							}
+						?>
+						
 
 						<div class="row buttonSend">
 							<div class="col-xs-12">

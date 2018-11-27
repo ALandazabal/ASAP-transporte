@@ -4,11 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Comuna extends Model
+class Mpago extends Model
 {
     protected $guarded = [] ;
 
-    public function precio(){
-    	return $this->hasMany('App\Precio');
+    public function transfer(){
+    	return $this->hasMany('App\transfer');
     }
 }

@@ -4,8 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Comuna extends Model
+class Tviaje extends Model
 {
+
     protected $guarded = [] ;
 
     public function precio(){

@@ -10,11 +10,25 @@ class Transfer extends Model
     	return $this->belongsTo('App\Vehicle');
     }
 
-    public function comuna(){
+    /*public function comuna(){
     	return $this->belongsTo('App\Comuna');
-    }
+    }*/
 
     public function user(){
     	return $this->belongsTo('App\User');
+    }
+
+    public function precio(){
+        return $this->belongsTo('App\Precio');
+    }
+
+    public function mpago(){
+        return $this->belongsTo('App\Mpago');
+    }
+
+    protected $guarded = [] ;
+
+    public function transvcio(){
+    	return $this->hasMany('App\transvcio');
     }
 }
