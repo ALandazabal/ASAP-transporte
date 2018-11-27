@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Transervicio extends Model
+class Transvcio extends Model
 {
     public function servicio()
     {

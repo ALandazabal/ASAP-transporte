@@ -7,6 +7,7 @@ use App\Vehicle;
 use App\Comuna;
 use App\Tviaje;
 use App\Passenger;
+use App\Transvcio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -89,6 +90,23 @@ class TransferController extends Controller
         $total = $preciod->precio + $cuotaPax + $cuotaGuia;
         $temp->price = $total;
         $temp->save();
+
+
+        $transfer = DB::table('transfers')->where([['vehicle_id', $request->get('vehicle')], ['user_id', $request->user()->id],['precio_id', $preciod->id], ['name', $request->get('name')], ['email', $request->get('email')], ['passengers', $request->input('passenger')], ['price', $total], ['date_pick', $request->get('date')], ['time_pick', $request->get('time')],])->latest()->first();
+
+        if($cuotaPax != 0){
+            $tserv = new Transvcio();
+            $tserv->servicio()->associate($servicio->id);
+            $tserv->transfer()->associate($transfer->id);
+            $tserv->save();
+        }
+
+        if($cuotaGuia != 0){
+            $tserv = new Transvcio();
+            $tserv->servicio()->associate($serviciog->id);
+            $tserv->transfer()->associate($transfer->id);
+            $tserv->save();
+        }
 
         return redirect()->route('transfer.create')->with('success', 'Se envió el formulario.  El total fue de: '.$total);
     }
