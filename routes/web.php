@@ -15,6 +15,9 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('index');
 
+Route::post('/contizacionForm', 'HomeController@contizacionForm')->name('contizacionForm');
+
+
 Route::post('/transfer/contact', 'TransferController@ContactForm')->name('transfer.contact');
 Route::get('/transfer/contact', 'TransferController@ContactForm')->name('transfer.contact');
 Route::get('/transfer/create', 'TransferController@create')->name('transfer.create');

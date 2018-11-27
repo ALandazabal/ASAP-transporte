@@ -138,23 +138,36 @@
 	<div class="col-md-6 container-fluid text-center cont-light-blue">
 		<div class="jumbotron">
 			<h2>Cotizacion</h2>
-			<form>
+			<form method="post" action="{{ route('contizacionForm') }}"  role="form">
+				{{ csrf_field() }}
+				<!-- @if(Session::has('success'))
+				<div class="alert alert-info">
+					{{Session::get('success')}}
+				</div>
+				@endif -->
+				<?php
+					if(isset($success)){
+						echo '<label>'.$success.'</label>';
+					}
+				?>
 				<div class="form-group">
-					<select class="form-control" name="service-value">
-						<option>Seleccione una opcion</option>
-						<option>Santiago</option>
-						<option>Peninsula</option>
+					<select class="form-control" name="tviaje">
+						<option value="null">Seleccione una opcion</option>
+						@foreach( $tposviaje as $tviaje)
+						<option value="{{ $tviaje->id }}">{{ $tviaje->descripcion }}</option>
+						@endforeach
 					</select>
 				</div>
 				<div class="form-group">
-					<select class="form-control" name="service-value">
-						<option>Seleccione una opcion</option>
-						<option>Carro 1</option>
-						<option>Van 1</option>
+					<select class="form-control" name="comuna">
+						<option value="null">Seleccione una opcion</option>
+						@foreach( $comunas as $comuna)
+						<option value="{{ $comuna->id }}">{{ $comuna->name }}</option>
+						@endforeach
 					</select>
 				</div>
 				<div class="form-group">
-					<button type="button" class="btn  btn-primary">Enviar</button>
+					<button type="submit" class="btn btn-primary">Enviar</button>
 				</div>
 			</form>
 		</div>
