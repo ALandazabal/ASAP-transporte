@@ -5,12 +5,17 @@ namespace App\Http\Controllers;
 use App\Transfer;
 use App\Vehicle;
 use App\Comuna;
+use App\Precio;
 use App\Tviaje;
 use App\Passenger;
+use App\Servicio;
 use App\Transvcio;
+use App\Mail\TransferMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Mail;
+/*use Illuminate\Support\Facades\Mail;*/
 
 class TransferController extends Controller
 {
@@ -22,8 +27,11 @@ class TransferController extends Controller
     public function index()
     {
         $transfers = Transfer::all();
+        $precios = Precio::all();
+        $comunas = Comuna::all();
 
-        return view('transfer.index')->with('transfers', $transfers);
+        
+        return view('transfer.index', compact('transfers','precios','comunas'));
     }
 
     /**
@@ -33,11 +41,24 @@ class TransferController extends Controller
      */
     public function create(Request $request)
     {
-        $vehicles = Vehicle::all();
-        $comunas = Comuna::all();
-        $tposviaje = Tviaje::all();
+        if( Auth::check() ){
+            $vehicles = Vehicle::all();
+            $comunas = Comuna::all();
+            $tposviaje = Tviaje::all();
 
-        return view('transfer.create', compact('vehicles','comunas', 'tposviaje'));
+            $form_data = null;
+
+            if( $request->session()->has('transfer_form')){
+                $form_data = $request->session()->pull('transfer_form');
+            }
+
+            return view('transfer.create', compact('form_data', 'vehicles','comunas', 'tposviaje'));
+        }else{
+            //$request->validate(['vehicle' => 'required', 'comuna' => 'required']);
+            $request->session()->put('transfer_form', $request->all());
+
+            return redirect()->route('login');
+        }
     }
 
     /**
@@ -108,7 +129,11 @@ class TransferController extends Controller
             $tserv->save();
         }
 
+        /*Mail::to($request->get('email'))->send(new Transfer($request->get('name')));*/
+        //\Mail::to('angelica.informatik@gmail.com')->send(new TransferMail($request->get('email')));
+
         return redirect()->route('transfer.create')->with('success', 'Se envió el formulario.  El total fue de: '.$total);
+        
     }
 
     /**
@@ -148,9 +173,15 @@ class TransferController extends Controller
     {
         $request->validate(['vehicle' => 'required', 'comuna' => 'required', 'name' => 'required', 'email' => 'required|email', 'date' => 'required|date', 'time' => 'required']);
 
+        $comuna = $request->input('comuna');
+        $tviaje = $request->input('tviaje');
+        $preciod = DB::table('precios')->where([['comuna_id', $comuna],['tviaje_id', $tviaje],])->first();
+
+
         $temp = Transfer::find($id);
         $temp->vehicle()->associate($request->get('vehicle'));
-        $temp->comuna()->associate($request->get('comuna'));
+        /*$temp->comuna()->associate($request->get('comuna'));*/
+        $temp->precio_id = $preciod->id;
         $temp->name = $request->get('name');
         $temp->email = $request->get('email');
         $temp->date_pick = $request->get('date');
@@ -180,10 +211,18 @@ class TransferController extends Controller
                 return view('transfer.contact')->with('form_data', $array);
             }else{
                 $request->validate(['vehicle' => 'required', 'comuna' => 'required']);
-                return view('transfer.contact')->with('form_data', $request->all());
+                $form_data = $request->all();
+                $comu = Comuna::find($form_data['comuna']);
+                $tviaj = Tviaje::find($form_data['tviaje']);
+                $veh = Vehicle::find($form_data['vehicle']);
+                $servs = Servicio::all();
+                $preciod = DB::table('precios')->where([['comuna_id', $comu->id],['tviaje_id', $tviaj->id],])->first();
+
+                return view('transfer.contact', compact('form_data', 'comu', 'tviaj', 'veh', 'preciod', 'servs'));
+                /*return view('transfer.contact')->with('form_data', $request->all());*/
             }
         }else{
-            $request->validate(['vehicle' => 'required', 'comuna' => 'required']);
+            $request->validate(['name' => 'required', 'vehicle' => 'required', 'comuna' => 'required']);
             $request->session()->put('transfer_form', $request->all());
 
             return redirect()->route('login');

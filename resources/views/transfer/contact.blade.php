@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-	<div class="col-md-4 col-md-offset-4" id="formContact">
+	<div class="col-md-8 col-md-offset-2" id="formContact">
 		@if (count($errors) > 0)
 		<div class="alert alert-danger">
 			<strong>Error!</strong> Revise los campos obligatorios.<br><br>
@@ -19,37 +19,140 @@
 		</div>
 		@endif
 
+		<!-- Inicialización de variables de precios -->
+		<?php
+			$totalpax = 0;
+			$totalg = 0;
+		?>
+
 		<div class="panel panel-default">
 			<div class="panel-heading" id="formContactTitle">
-				<h3 class="panel-title">Solicitud <br><sub>(Información de contacto)</sub></h3>
+				<h3 class="panel-title">Información de solicitud</h3>
 			</div>
 			<div class="panel-body">					
 				<div class="table-container">
 					<form method="post" action="{{ route('transfer.store') }}"  role="form">
 						{{ csrf_field() }}
 						<div class="row">
-							<div class="col-xs-12">
+							<div class="col-xs-6">
 								<div class="form-group">
-									<label for="name">Nombre</label>
-									<input type="text" class="form-control input-sm" name="name" value="{{ Auth::user()->name }}" required>
+									<label for="name">Nombre: </label><label class="dataTransfer">{{ Auth::user()->name }}</label>
+								</div>
+							</div>
+							<div class="col-xs-6">
+								<div class="form-group">
+									<label for="email">Correo Electrónico: </label><label class="dataTransfer">{{ Auth::user()->email }}</label>
 								</div>
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-xs-12">
+							<div class="col-xs-6">
 								<div class="form-group">
-									<label for="email">Correo Electrónico</label>
-									<input type="email" class="form-control input-sm" name="email" value="{{ Auth::user()->email }}" required>
+									<label for="name">Tipo de viaje: </label><label class="dataTransfer">{{ $tviaj->descripcion }}</label>
+								</div>
+							</div>
+							<div class="col-xs-6">
+								<div class="form-group">
+									<label for="email">Fecha y hora: </label><label class="dataTransfer">{{ $form_data['date'] }}  {{ $form_data['time'] }}</label>
 								</div>
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-xs-12">
+							<div class="col-xs-6">
 								<div class="form-group">
-									<label for="Date">Fecha de Búsqueda</label>
-									<input type="date" class="form-control" name="date" required>
-									<label for="Time">Hora de Búsqueda</label>
-									<input type="time" class="form-control" name="time" required>
+									<label for="name">Origen: </label><label class="dataTransfer">{{ $form_data['origin'] }}</label>
+								</div>
+							</div>
+							<div class="col-xs-6">
+								<div class="form-group">
+									<label for="email">Destino: </label><label class="dataTransfer">{{ $comu->name }}</label>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-6">
+								<div class="form-group">
+									<label for="name">Vehiculo: </label><label class="dataTransfer">{{ $veh->description}}</label>
+								</div>
+							</div>
+							<div class="col-xs-6">
+								<div class="form-group">
+									<label for="email">Cantidad de pasajeros: </label><label class="dataTransfer">{{ $form_data['passenger'] }}</label>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-6">
+								<div class="form-group">
+									<label for="name">Descripción: </label><label class="dataTransfer">{{ $preciod->descripcion }}</label>
+								</div>
+							</div>
+							<div class="col-xs-6">
+								<div class="form-group">
+									<label for="email">Precio: </label><label class="dataTransfer">{{ $preciod->precio }}</label>
+								</div>
+							</div>
+						</div>
+				
+				@if(isset($form_data['sguia']))
+					@foreach( $servs as $serv)
+						@if($serv->id == 2)
+						<div class="row">
+							<div class="col-xs-6">
+								<div class="form-group">
+									<label for="name">Servicio: </label><label class="dataTransfer">{{ $serv->descripcion }}</label>
+										
+								</div>
+							</div>
+							<div class="col-xs-6">
+								<div class="form-group">
+									<label for="email">Precio: </label><label class="dataTransfer">{{ $serv->price }}</label>
+									<?php $totalg = $serv->price; ?>
+								</div>
+							</div>
+						</div>
+						@endif
+					@endforeach
+				@endif
+				@if($form_data['passenger'] > 4)
+					@foreach( $servs as $serv)
+						@if($serv->id == 3)
+						<div class="row">
+							<div class="col-xs-6">
+								<div class="form-group">
+									<label for="name">Servicio: </label><label class="dataTransfer">{{ $serv->descripcion }}</label>
+								</div>
+							</div>
+							<div class="col-xs-6">
+								<div class="form-group">
+									<label for="email">Precio: </label><label class="dataTransfer">
+										<?php 
+											$pax = $form_data['passenger'] - 4;
+											$totalpax = $serv->price * $pax; 
+											echo $totalpax;
+										?>											
+									</label>
+								</div>
+							</div>
+						</div>
+						@endif
+					@endforeach
+				@endif
+
+						<div class="row">
+							<!-- <div class="col-xs-6">
+								<div class="form-group">
+									<label for="name">Servicio: </label><label class="dataTransfer">{{ $serv->descripcion }}</label>
+								</div>
+							</div> -->
+							<div class="col-xs-6 col-xs-offset-6">
+								<div class="form-group">
+									<label for="email">Total: </label><label class="dataTransfer">
+										<?php 
+											$total = $preciod->precio + $totalpax + $totalg;
+											echo $total;
+										?>											
+									</label>
 								</div>
 							</div>
 						</div>
@@ -71,8 +174,13 @@
 						</div>
 
 						{{-- Valores traidos del otro fomulario--}}
+						<input type="hidden" name="name" value="{{ $form_data['name'] }}">
+						<input type="hidden" name="email" value="{{ $form_data['email'] }}">
+						<input type="hidden" name="origin" value="{{ $form_data['origin'] }}">
 						<input type="hidden" name="comuna" value="{{ $form_data['comuna'] }}">
 						<input type="hidden" name="tviaje" value="{{ $form_data['tviaje'] }}">
+						<input type="hidden" name="date" value="{{ $form_data['date'] }}">
+						<input type="hidden" name="time" value="{{ $form_data['time'] }}">
 						<input type="hidden" name="vehicle" value="{{ $form_data['vehicle'] }}">
 						<input type="hidden" name="passenger" value="{{ $form_data['passenger'] }}">
 						<?php 

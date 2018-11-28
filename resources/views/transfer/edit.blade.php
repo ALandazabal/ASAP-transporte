@@ -56,6 +56,18 @@
 								</div>
 								<div class="col-xs-12">
 									<div class="form-group">
+										<select name="tviaje" class="form-control">
+											<option value="{{ $transfer->vehicle->id }}">{{ $transfer->vehicle->description }}</option>
+											@foreach($vehicles as $vehicle)
+											@if( $vehicle != $transfer->vehicle )
+											<option value="{{ $vehicle->id }}">{{ $vehicle->description }}</option>
+											@endif
+											@endforeach
+										</select>
+									</div>
+								</div>
+								<div class="col-xs-12">
+									<div class="form-group">
 										<select name="vehicle" class="form-control">
 										<option value="{{ $transfer->vehicle->id }}">{{ $transfer->vehicle->description }}</option>
 										@foreach($vehicles as $vehicle)
@@ -69,9 +81,9 @@
 								<div class="col-xs-12">
 									<div class="form-group">
 										<select name="comuna" class="form-control">
-										<option value="{{ $transfer->comuna->id }}">{{ $transfer->comuna->name }}</option>
+										<option value="{{ $transfer->precio->comuna->id }}">{{ $transfer->precio->comuna->name }}</option>
 										@foreach($comunas as $comuna)
-										@if( $comuna != $transfer->comuna )
+										@if( $comuna != $transfer->precio->comuna )
 										<option value="{{ $comuna->id }}">{{ $comuna->name }}</option>
 										@endif
 										@endforeach

@@ -39,6 +39,6 @@ class LoginController extends Controller
 
     protected function authenticated($request, $user) {
         if( $request->session()->has('transfer_form') )
-            return redirect()->route('transfer.contact');
+            return redirect()->route('transfer.create');
     }
 }

@@ -11,6 +11,8 @@
 |
 */
 
+use App\Mail\Transfer;
+
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('index');
@@ -53,4 +55,10 @@ Route::get('/contacto', function () {
 
 Route::get('/info', function () {
     return view('info');
+});
+
+Route::get('email', function(){
+
+    $user = new App\User(['name'=>'admin']);
+    return new Transfer($user);
 });

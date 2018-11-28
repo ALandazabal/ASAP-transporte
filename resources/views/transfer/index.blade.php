@@ -29,7 +29,27 @@
 											<td>{{ $transfer->user->name }}</td>
 											<td>{{ $transfer->email }}</td>
 											<td>{{ $transfer->vehicle->description }}</td>
-											<td>{{ $transfer->comuna->name }}</td>
+											@if($precios->isNotEmpty())
+												@foreach($precios as $precio)
+													@if($precio->id == $transfer->precio_id)
+														@if($comunas->isNotEmpty())
+															@foreach($comunas as $comuna)
+																@if($comuna->id == $precio->comuna_id)
+																	<td>{{ $comuna->name }}</td>
+																@endif
+															@endforeach 
+														@else
+															<tr>
+																<td colspan="8">No hay registros !!</td>
+															</tr>
+														@endif
+													@endif
+												@endforeach 
+											@else
+												<tr>
+													<td colspan="8">No hay registros !!</td>
+												</tr>
+											@endif
 											<td><a class="btn btn-primary btn-xs" href="{{action('TransferController@edit', $transfer->id)}}" ><span class="glyphicon glyphicon-pencil"></span></a>
 											</td>
 										</tr>

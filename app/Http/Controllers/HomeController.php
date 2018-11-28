@@ -6,6 +6,7 @@ use App\Comuna;
 use App\Slider;
 use App\Tviaje;
 use App\Vehicle;
+use App\Precio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 

@@ -29,9 +29,40 @@
 						<div class="row">
 							<div class="col-xs-12">
 								<div class="form-group">
-									<label for="Origin">Origen:</label>
-									<select class="form-control" name="origin" disabled>
+									<label for="name">Nombre</label>
+									<input type="text" class="form-control input-sm" name="name2" value="{{ Auth::user()->name }}" required disabled>
+									<input type="hidden" class="form-control input-sm" name="name" value="{{ Auth::user()->name }}" required >
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								<div class="form-group">
+									<label for="email">Correo Electrónico</label>
+									<input type="email" class="form-control input-sm" name="email2" value="{{ Auth::user()->email }}" required disabled>
+									<input type="hidden" class="form-control input-sm" name="email" value="{{ Auth::user()->email }}" required>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								<div class="form-group">
+									<label for="Origin2">Origen:</label>
+									<select class="form-control" name="origin2" disabled>
 									<option>Aeropuerto Internacional Comodoro Arturo Medino Benítez</option>
+									</select>
+									<input type="hidden" class="form-control input-sm" name="origin" value="Aeropuerto Internacional Comodoro Arturo Medino Benítez" required>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								<div class="form-group">
+									<label for="tviaje">Tipo de servicio:</label>
+									<select class="form-control" name="tviaje">
+										@foreach( $tposviaje as $tviaje)
+										<option value="{{ $tviaje->id }}">{{ $tviaje->descripcion }}</option>
+										@endforeach
 									</select>
 								</div>
 							</div>
@@ -51,12 +82,10 @@
 						<div class="row">
 							<div class="col-xs-12">
 								<div class="form-group">
-									<label for="tviaje">Tipo de servicio:</label>
-									<select class="form-control" name="tviaje">
-										@foreach( $tposviaje as $tviaje)
-										<option value="{{ $tviaje->id }}">{{ $tviaje->descripcion }}</option>
-										@endforeach
-									</select>
+									<label for="Date">Fecha de Búsqueda</label>
+									<input type="date" class="form-control" name="date" required min="<?php $hoy=date('Y-m-d'); echo $hoy; ?>">
+									<label for="Time">Hora de Búsqueda</label>
+									<input type="time" class="form-control" name="time" required>
 								</div>
 							</div>
 						</div>

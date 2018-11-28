@@ -167,7 +167,8 @@
 					</select>
 				</div>
 				<div class="form-group">
-					<button type="submit" class="btn btn-primary">Enviar</button>
+					<!-- <button type="submit" class="btn btn-primary">Enviar</button> -->
+					<button type="button" data-toggle="modal" data-target="#create" class="btn btn-primary">Enviar</button>
 				</div>
 			</form>
 		</div>
@@ -190,3 +191,4 @@
 	</div>
 </div>
 @endsection
+<!-- @include('transfer.cotizacion') -->

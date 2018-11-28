@@ -266,3 +266,7 @@ footer .container-fluid .row a{
 	left: 50px;
 	padding: 20px;
 }
+.dataTransfer{
+	margin-left: 15px;
+	font-weight: normal;
+}
