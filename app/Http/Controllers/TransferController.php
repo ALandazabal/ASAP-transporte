@@ -10,6 +10,7 @@ use App\Tviaje;
 use App\Passenger;
 use App\Servicio;
 use App\Transvcio;
+use App\User;
 use App\Mail\TransferMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -24,9 +25,40 @@ class TransferController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $transfers = Transfer::all();
+        $email = $request->get('emailb');
+        $destino = $request->get('destinob');
+        $finicial = $request->get('finicial');
+
+        if($email != ''){
+            $userid = User::where('email', $email)->first();
+            if($userid != ''){
+                $transfers = Transfer::where('user_id', $userid->id)->get();
+            }else{
+                $transfers = Transfer::all()->sortBy('id'); 
+            }
+        }else if($destino != ''){
+            $comunaid = Comuna::where('name', $destino)->first();
+            if($comunaid != ''){
+                $precioid = Precio::where('comuna_id', $comunaid->id)->get();
+
+                if($precioid != ''){
+                    $transfers = Transfer::whereIn('precio_id', $precioid)->get();
+                }else{
+                    $transfers = Transfer::all()->sortBy('id'); 
+                    //$transfers = Transfer::find($precioid);
+
+                }
+            }else{
+                $transfers = Transfer::all()->sortBy('id'); 
+            }
+        }else if($finicial != ''){
+            $transfers = Transfer::whereDate('date_pick', '>=', $finicial)->get();
+        }else{
+            $transfers = Transfer::all()->sortByDesc('id');            
+        }
+        /*$transfers = Transfer::orderBy('id', 'DESC')->searchEmail('admmin');*/
         $precios = Precio::all();
         $comunas = Comuna::all();
 
@@ -142,9 +174,13 @@ class TransferController extends Controller
      * @param  \App\Transfer  $transfer
      * @return \Illuminate\Http\Response
      */
-    public function show(Transfer $transfer)
+    public function show($id)
     {
-        //
+        $transfer = Transfer::find($id);
+        $vehicles = Vehicle::all();
+        $comunas = Comuna::all();
+
+        return view('transfer.show', compact('transfer', 'vehicles', 'comunas'));
     }
 
     /**
@@ -158,8 +194,9 @@ class TransferController extends Controller
         $transfer = Transfer::find($id);
         $vehicles = Vehicle::all();
         $comunas = Comuna::all();
+        $tviajes = Tviaje::all();
 
-        return view('transfer.edit', compact('transfer', 'vehicles', 'comunas'));
+        return view('transfer.edit', compact('transfer', 'vehicles', 'comunas', 'tviajes'));
     }
 
     /**

@@ -21,7 +21,7 @@
 
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h3 class="panel-title">Editar Transfer</h3>
+					<h3 class="panel-title">Detalle Transfer</h3>
 				</div>
 				<div class="panel-body">					
 					<div class="table-container">
@@ -36,64 +36,43 @@
 								</div>
 								<div class="col-xs-12">
 									<div class="form-group">
-										<input type="text" name="name" id="name" class="form-control input-sm" value="{{ $transfer->name }}">
+										<input type="text" name="name" id="name" class="form-control input-sm" value="{{ $transfer->name }}" disabled>
 									</div>
 								</div>
 								<div class="col-xs-12">
 									<div class="form-group">
-										<input type="email" name="email" id="email" class="form-control input-sm" value="{{ $transfer->email }}">
+										<input type="email" name="email" id="email" class="form-control input-sm" value="{{ $transfer->email }}" disabled>
 									</div>
 								</div>
 								<div class="col-xs-12">
 									<div class="form-group">
-										<input type="date" name="date" class="form-control input-sm" value="{{ $transfer->date_pick }}">
+										<input type="date" name="date" class="form-control input-sm" value="{{ $transfer->date_pick }}" disabled>
 									</div>
 								</div>
 								<div class="col-xs-12">
 									<div class="form-group">
-										<input type="time" name="time" class="form-control input-sm" value="{{ $transfer->time_pick }}">
+										<input type="time" name="time" class="form-control input-sm" value="{{ $transfer->time_pick }}" disabled>
 									</div>
 								</div>
 								<div class="col-xs-12">
 									<div class="form-group">
-										<select name="tviaje" class="form-control">
-											<option value="{{ $transfer->precio->tviaje->id }}">{{ $transfer->precio->tviaje->descripcion }}</option>
-											@foreach($tviajes as $tviaje)
-												@if( $tviaje->id != $transfer->precio->tviaje->id )
-													<option value="{{ $tviaje->id }}">{{ $tviaje->descripcion }}</option>
-												@endif
-											@endforeach
-										</select>
+										<input type="text" name="tviaje" class="form-control input-sm" value="{{ $transfer->precio->tviaje->descripcion }}" disabled>
 									</div>
 								</div>
 								<div class="col-xs-12">
 									<div class="form-group">
-										<select name="vehicle" class="form-control">
-										<option value="{{ $transfer->vehicle->id }}">{{ $transfer->vehicle->description }}</option>
-										@foreach($vehicles as $vehicle)
-										@if( $vehicle != $transfer->vehicle )
-										<option value="{{ $vehicle->id }}">{{ $vehicle->description }}</option>
-										@endif
-										@endforeach
-										</select>
+										<input type="text" name="vehicle" class="form-control input-sm" value="{{ $transfer->vehicle->description }}" disabled>
 									</div>
 								</div>
 								<div class="col-xs-12">
 									<div class="form-group">
-										<select name="comuna" class="form-control">
-										<option value="{{ $transfer->precio->comuna->id }}">{{ $transfer->precio->comuna->name }}</option>
-										@foreach($comunas as $comuna)
-										@if( $comuna != $transfer->precio->comuna )
-										<option value="{{ $comuna->id }}">{{ $comuna->name }}</option>
-										@endif
-										@endforeach
-										</select>
+										<input type="text" name="vehicle" class="form-control input-sm" value="{{ $transfer->precio->comuna->name }}" disabled>
 									</div>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-xs-12">
-									<button class="btn btn-success" type="submit">Guardar</button>
+									<!-- <button class="btn btn-success" type="submit">Guardar</button> -->
 									<a href="{{ route('transfer.index') }}" class="btn btn-info" >Atrás</a>
 								</div>	
 							</div>

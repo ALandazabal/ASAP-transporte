@@ -41,7 +41,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     //Transfers
     Route::get('transfer', 'TransferController@index')->name('transfer.index');
     Route::patch('transfer/{transfer}', 'TransferController@update')->name('transfer.update');
-    Route::get('transfer/{transfer}', 'TransferController@show')->name('transfer.show');
+    Route::get('transfer/{transfer}/show', 'TransferController@show');
     Route::get('transfer/{transfer}/edit', 'TransferController@edit');
 });
 

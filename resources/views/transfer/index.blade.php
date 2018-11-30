@@ -1,6 +1,38 @@
 @extends('layouts.default')
 @section('content')
 <div class="row">
+	<section class="filters">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				<h3>Busqueda por:</h3>
+			</div>
+		</div>
+		<div class="col-md-8 col-md-offset-2">
+			<form method="GET" action="{{ route('transfer.index') }}"  role="form">
+				{{ csrf_field() }}
+				<div class="col-xs-4">
+					<div class="form-group">
+						<input type="text" name="emailb" id="emailb" class="form-control input-sm"  placeholder="Email">
+					</div>
+				</div>
+				<div class="col-xs-4">
+					<div class="form-group">
+						<input type="text" name="destinob" id="destinob" class="form-control input-sm" placeholder="Destino">
+					</div>
+				</div>
+				<div class="col-xs-4">
+					<div class="form-group">
+						<input type="date" name="finicial" id="finicial" class="form-control input-sm" max="<?php $hoy=date('Y-m-d'); echo $hoy; ?>">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-right">
+						<button class="btn btn-success" type="submit">Buscar</button>
+					</div>	
+				</div>
+			</form>
+		</div>
+	</section>
 	<section class="content">
 		<div class="col-md-8 col-md-offset-2">
 			@if(Session::has('success'))
@@ -19,6 +51,7 @@
 								<th>Email</th>
 								<th>Vehículo</th>
 								<th>Destino</th>
+								<th>Ver</th>
 								<th>Modificar</th>
 							</thead>
 							<tbody>
@@ -50,6 +83,8 @@
 													<td colspan="8">No hay registros !!</td>
 												</tr>
 											@endif
+											<td><a class="btn btn-primary btn-xs" href="{{action('TransferController@show', $transfer->id)}}" ><span class="glyphicon glyphicon-eye-open"></span></a>
+											</td>
 											<td><a class="btn btn-primary btn-xs" href="{{action('TransferController@edit', $transfer->id)}}" ><span class="glyphicon glyphicon-pencil"></span></a>
 											</td>
 										</tr>
