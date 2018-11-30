@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Comuna;
+use App\Precio;
+use App\Tviaje;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ComunaController extends Controller
 {
@@ -26,7 +29,9 @@ class ComunaController extends Controller
      */
     public function create()
     {
-        return view('comuna.create');
+        $tposviajes = Tviaje::all();
+
+        return view('comuna.create', compact('tposviajes'));
     }
 
     /**
@@ -37,9 +42,27 @@ class ComunaController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate(['name' => 'required', 'price' => 'required', 'description' => 'required']);
+        $request->validate(['name' => 'required', 'precio' => 'required', 'description' => 'required', 'tposviajei' => 'required']);
 
-        Comuna::create($request->all());
+        /*Comuna::create($request->all());*/
+        $temp = new Comuna();
+        $temp->name = $request->get('name');
+        if($request->get('distance')){
+            $temp->distance = $request->get('distance');
+        }
+        if($request->get('coords')){
+            $temp->coords = $request->get('coords');
+        }
+        $temp->save();
+
+        $precio = DB::table('comunas')->where('name', $request->get('name'))->latest()->first();
+
+        $temp2 = new Precio();
+        $temp2->comuna()->associate($precio->id);
+        $temp2->tviaje()->associate($request->get('tposviajei'));
+        $temp2->precio = $request->get('precio');
+        $temp2->descripcion = $request->get('description');
+        $temp2->save();
 
         return redirect()->route('comuna.index')->with('success', 'Comuna añadida');
     }

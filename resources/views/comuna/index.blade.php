@@ -21,8 +21,6 @@
 							<thead>
 								<th>#</th>
 								<th>Nombre</th>
-								<th>Descripcion</th>
-								<th>Precio</th>
 								<th>Distancia</th>
 								<th>Coordenadas</th>
 								{{-- <th>Modificar</th> --}}
@@ -34,8 +32,6 @@
 										<tr>
 											<td>{{ $loop->iteration }}</td>
 											<td>{{ $comuna->name }}</td>
-											<td>{{ $comuna->description }}</td>
-											<td>{{ $comuna->price }}</td>
 											<td>{{ $comuna->distance }}</td>
 											<td>{{ $comuna->coords }}</td>
 											{{--

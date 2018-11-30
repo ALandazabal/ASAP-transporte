@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="container">
-	<div class="col-md-4 text-center">
+	<div class="col-md-4 col-md-offset-4 text-center">
 		@if (count($errors) > 0)
 		<div class="alert alert-danger">
 			<strong>Error!</strong> Revise los campos obligatorios.<br><br>
@@ -31,12 +31,15 @@
 						<input type="text" class="form-control" name="name">
 						<label for="Description">Descripción</label>
 						<input type="text" class="form-control" name="description">
-						<label for="Price">Precio</label>
-						<select class="form-control" name="price">
-							<option value="100">$ 100</option>
-							<option value="200">$ 200</option>
-							<option value="300">$ 300</option>
+						<label for="tposviajei">Tipo de viaje</label>
+						<select class="form-control" name="tposviajei">
+							<option>Seleccione una opción</option>
+							@foreach( $tposviajes as $tposviaje)
+							<option value="{{ $tposviaje->id }}">{{ $tposviaje->descripcion }}</option>
+							@endforeach
 						</select>
+						<label for="Price">Precio</label>
+						<input type="text" class="form-control" name="precio">
 						<label for="Distance">Distancia</label>
 						<input type="number" step=0.01 class="form-control" name="distance">
 						<label for="Coords">Coordenadas</label>
