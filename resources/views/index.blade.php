@@ -15,8 +15,8 @@
 		<span>Ofrecemos servicios de transporte turistico a cualquier lugar de Chile, para que usted pueda obtener un viaje placentero hacia su empresa o lugar de destino..</span>
 	</div>
 	<div class="col-md-6">
-		<h2><i class="fas fa-user-tie"></i></h2>
-		<h3>Empresas</h3>
+		<h2><i class="fas fa-shuttle-van"></i></h2>
+		<h3>Servicio de Transfer</h3>
 		<span>Ofrecemos servicios de transporte para su empresa, organización o institución, con la seguridad de una empresa de trayectoria, compuesta por profesionales expertos en transporte.</span>
 	</div>
 </div>

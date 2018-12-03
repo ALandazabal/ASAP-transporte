@@ -10,10 +10,10 @@
 			<div class="col-md-4 foot-box">
 				<h4 class="title">ENLACES DE INTERES</h4>
 				<span>
-					Inicio<br>
-					Servicios<br>
-					Contacto<br>
-					Nosotros<br>
+					<a href="{{ route('index') }}">Inicio</a><br>
+					<a href="#">Servicios</a><br>
+					<a href="#">Contacto</a><br>
+					<a href="#">Nosotros</a><br>
 				</span>
 				<a href="#">
 					<div class="social-item" id="face">

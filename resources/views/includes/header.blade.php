@@ -9,17 +9,10 @@
 		<a class="navbar-brand" href="{{ route('index') }}"><img class="logo" alt="Brand" src="{{{ asset('img/logo.png') }}}"></a>
 	</div>
 	<div class="collapse navbar-collapse navbar-ex1-collapse">
-		<ul class="nav navbar-nav">
-			<li class="{{ request()->is('/') ? 'active' : '' }}"><a href="/">Inicio</a></li>
-			<li class="{{ request()->is('servicio') ? 'active' : '' }}"><a href="servicio">Nuestros Servicios</a></li>
-			<li class="{{ request()->is('transfer/create') || request()->is('transfer/contact') ? 'active' : '' }}"><a href="{{ route('transfer.create') }}">Transfers</a></li>
-			<li class="{{ request()->is('contacto') ? 'active' : '' }}"><a href="contacto">Contacto</a></li>
-			<!--<li class="{{ request()->is('info') ? 'active' : '' }}"><a href="info">Nosotros</a></li>-->
-		</ul>
 		<ul class="nav navbar-nav navbar-right">
 	        @guest
-	            <li><a href="{{ route('login') }}">Inicia Sesion</a></li>
-	            <li><a href="{{ route('register') }}">Registrarse</a></li>
+	            <li><a href="{{ route('login') }}">Inicia Sesión</a></li>
+	            <li><a href="{{ route('register') }}">Regístrate</a></li>
 	            @else
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
@@ -45,5 +38,12 @@
 				</li>
 	        @endguest
 	    </ul>
+	    <ul class="nav navbar-nav navbar-right">
+			<li class="{{ request()->is('/') ? 'active' : '' }}"><a href="/">Inicio</a></li>
+			<li class="{{ request()->is('servicio') ? 'active' : '' }}"><a href="servicio">Nuestros Servicios</a></li>
+			<li class="{{ request()->is('transfer/create') || request()->is('transfer/contact') ? 'active' : '' }}"><a href="{{ route('transfer.create') }}">Transfers</a></li>
+			<li class="{{ request()->is('contacto') ? 'active' : '' }}"><a href="contacto">Contacto</a></li>
+			<!--<li class="{{ request()->is('info') ? 'active' : '' }}"><a href="info">Nosotros</a></li>-->
+		</ul>
 	</div>
 </nav>
