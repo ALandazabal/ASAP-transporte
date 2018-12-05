@@ -140,11 +140,6 @@
 				@endif
 
 						<div class="row">
-							<!-- <div class="col-xs-6">
-								<div class="form-group">
-									<label for="name">Servicio: </label><label class="dataTransfer">{{ $serv->descripcion }}</label>
-								</div>
-							</div> -->
 							<div class="col-xs-6 col-xs-offset-6">
 								<div class="form-group">
 									<label for="email">Total: </label><label class="dataTransfer">

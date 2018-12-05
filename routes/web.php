@@ -23,6 +23,10 @@ Route::post('/contizacionForm', 'HomeController@contizacionForm')->name('contiza
 Route::post('/transfer/contact', 'TransferController@ContactForm')->name('transfer.contact');
 Route::get('/transfer/contact', 'TransferController@ContactForm')->name('transfer.contact');
 Route::get('/transfer/create', 'TransferController@create')->name('transfer.create');
+
+Route::post('/transfer/result', 'TransferController@result')->name('transfer.result');
+Route::get('/transfer/result', 'TransferController@result')->name('transfer.result');
+
 //Route::resource('transfer', 'TransferController');
 
 //-- Para todos cualquiera con sesión iniciada
@@ -58,7 +62,6 @@ Route::get('/info', function () {
 });
 
 Route::get('email', function(){
-
     $user = new App\User(['name'=>'admin']);
     return new Transfer($user);
 });

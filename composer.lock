@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0cc6edc2c5f308431c7a663797cce2f5",
+    "content-hash": "6c165d83a338e4f4441d755547f78660",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -319,6 +319,45 @@
                 "trusted proxy"
             ],
             "time": "2017-06-15T17:19:42+00:00"
+        },
+        {
+            "name": "freshwork/transbank",
+            "version": "1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/freshworkstudio/transbank-web-services.git",
+                "reference": "381f10e9f535579c41d620843ecd09d0649a34f8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/freshworkstudio/transbank-web-services/zipball/381f10e9f535579c41d620843ecd09d0649a34f8",
+                "reference": "381f10e9f535579c41d620843ecd09d0649a34f8",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Freshwork\\Transbank\\": "src/"
+                },
+                "classmap": [
+                    "src/wss"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Gonzalo De Spirito",
+                    "email": "gonzalo@freshworkstudio.com"
+                }
+            ],
+            "description": "SDK para webservices de transbank (Webpay Plus, Webpay OneClick, Webpay PatPass)",
+            "time": "2018-10-01T19:54:10+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -2536,6 +2575,60 @@
             "description": "CssToInlineStyles is a class that enables you to convert HTML-pages/files into HTML-pages/files with inline styles. This is very useful when you're sending emails.",
             "homepage": "https://github.com/tijsverkoyen/CssToInlineStyles",
             "time": "2017-11-27T11:13:29+00:00"
+        },
+        {
+            "name": "transbank/transbank-sdk",
+            "version": "1.4.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/TransbankDevelopers/transbank-sdk-php.git",
+                "reference": "2555e19a3fc6e332a9529be11a591ce035cdde4e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/TransbankDevelopers/transbank-sdk-php/zipball/2555e19a3fc6e332a9529be11a591ce035cdde4e",
+                "reference": "2555e19a3fc6e332a9529be11a591ce035cdde4e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0",
+                "satooshi/php-coveralls": "~0.6.1",
+                "squizlabs/php_codesniffer": "~2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Transbank\\Onepay\\": [
+                        "lib/onepay",
+                        "lib/onepay/utils"
+                    ],
+                    "Transbank\\Onepay\\Exceptions\\": [
+                        "lib/onepay/exceptions"
+                    ],
+                    "Transbank\\Webpay\\": [
+                        "lib/webpay",
+                        "lib/webpay/soap"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Transbank SDK",
+            "keywords": [
+                "api",
+                "payments",
+                "sdk",
+                "transbank"
+            ],
+            "time": "2018-11-06T13:25:17+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
