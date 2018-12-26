@@ -204,7 +204,7 @@ class TransferController extends Controller
             echo RedirectorHelper::redirectHTML($response->url, $response->token);
         }
 
-        /*Mail::to($request->get('email'))->send(new Transfer($request->get('name')));*/
+        Mail::to($request->get('email'))->send(new Transfer($request->get('name')));
         //\Mail::to('angelica.informatik@gmail.com')->send(new TransferMail($request->get('email')));
 
         //return redirect()->route('transfer.create')->with('success', 'Se envió el formulario.  El total fue de: '.$total);

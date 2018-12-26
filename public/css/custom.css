@@ -270,3 +270,12 @@ footer .container-fluid .row a{
 	margin-left: 15px;
 	font-weight: normal;
 }
+
+.cont-login{
+	min-height: 60vh;
+}
+
+.form-login{
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
