@@ -70,14 +70,21 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-xs-6">
+							<div class="col-xs-12">
 								<div class="form-group">
 									<label for="name">Vehiculo: </label><label class="dataTransfer">{{ $veh->description}}</label>
 								</div>
 							</div>
+						</div>
+						<div class="row">
 							<div class="col-xs-6">
 								<div class="form-group">
-									<label for="email">Cantidad de pasajeros: </label><label class="dataTransfer">{{ $form_data['passenger'] }}</label>
+									<label for="passenger">Cantidad de pasajeros: </label><label class="dataTransfer">{{ $form_data['passenger'] }}</label>
+								</div>
+							</div>
+							<div class="col-xs-6">
+								<div class="form-group">
+									<label for="suitcase">Cantidad de maletas: </label><label class="dataTransfer">{{ $form_data['suitcase'] }}</label>
 								</div>
 							</div>
 						</div>
@@ -178,6 +185,7 @@
 						<input type="hidden" name="time" value="{{ $form_data['time'] }}">
 						<input type="hidden" name="vehicle" value="{{ $form_data['vehicle'] }}">
 						<input type="hidden" name="passenger" value="{{ $form_data['passenger'] }}">
+						<input type="hidden" name="suitcase" value="{{ $form_data['suitcase'] }}">
 						<?php 
 							if(isset($form_data['sguia'])){
 						?>

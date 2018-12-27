@@ -15,28 +15,30 @@
 					<a href="#">Contacto</a><br>
 					<a href="#">Nosotros</a><br>
 				</span>
-				<a href="#">
-					<div class="social-item" id="face">
-						<i class="fab fa-facebook-f"></i>
-					</div>
-				</a>
-				<a href="#">
-					<div class="social-item" id="insta">
-						<i class="fab fa-instagram"></i>
-					</div>
-				</a>
-				<a href="#">
-					<div class="social-item" id="twit">
-						<i class="fab fa-twitter"></i>
-					</div>
-				</a>
+				<div class="col-md-6">
+					<a href="#">
+						<div class="social-item">
+							<i class="fab fa-facebook-f"></i>
+						</div>
+					</a>
+					<a href="#">
+						<div class="social-item">
+							<i class="fab fa-instagram"></i>
+						</div>
+					</a>
+					<a href="#">
+						<div class="social-item">
+							<i class="fab fa-twitter"></i>
+						</div>
+					</a>
+				</div>
 			</div>
 			<div class="col-md-4 foot-box">
 				<h4 class="title">GALERIA</h4>
-				<img src="{{{ asset('img/carimages/mini1.jpg') }}}" class="mini">
-				<img src="{{{ asset('img/carimages/mini2.jpg') }}}" class="mini">
-				<img src="{{{ asset('img/carimages/mini3.jpg') }}}" class="mini">
-				<img src="{{{ asset('img/carimages/mini4.jpg') }}}" class="mini">
+				<img src="{{{ asset('img/carimages/1.jpg') }}}" class="mini">
+				<img src="{{{ asset('img/carimages/2.jpg') }}}" class="mini">
+				<img src="{{{ asset('img/carimages/3.jpg') }}}" class="mini">
+				<img src="{{{ asset('img/carimages/4.jpg') }}}" class="mini">
 			</div>
 		</div>
 		<div class="row footer-copyright">

@@ -23,6 +23,7 @@ class CreateTransfersTable extends Migration
             $table->string('email');
 
             $table->integer('passengers');
+            $table->integer('suitcase');
 
             $table->date('date_pick');
             $table->time('time_pick');

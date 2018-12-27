@@ -109,6 +109,14 @@
 								</div>
 							</div>
 						</div>
+						<div class="row">
+							<div class="col-xs-8">
+								<div class="form-group">
+									<label for="suitcase">Número de maletas:</label>
+									<input type="number" name="suitcase" id="suitcase" min="0" max="99" value="0">
+								</div>
+							</div>
+						</div>
 						<!-- <div class="row">
 							<div class="col-xs-12">
 								<div class="form-group">

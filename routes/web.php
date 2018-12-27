@@ -65,3 +65,7 @@ Route::get('email', function(){
     $user = new App\User(['name'=>'admin']);
     return new Transfer($user);
 });
+
+Route::get('/transfer/pagar', function () {
+    return view('info');
+});

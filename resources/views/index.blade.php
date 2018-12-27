@@ -43,7 +43,7 @@
 					<img src="../img/carimages/{{ $slide->photo }}">
 					<div class="etiquetaImg">
 						<h3>{{ $slide->title }}</h3>
-						<span class="quote">Pasajeros: {{ $slide->description }}</span>
+						<span class="quote">{{ $slide->description }}</span>
 					</div>
 				</div>
 			</div>
@@ -104,7 +104,7 @@
 
 			<div class="item">
 				<div class="jumbotron cont-dark-grey">
-					<h3><i class="fas fa-futbol"></i> Lorem Football Club</h3>
+					<h3><i class="fas fa-futbol"></i>Football Club</h3>
 				</div>
 			</div>
 			<div class="item">
@@ -116,7 +116,7 @@
 	</div>
 </div>
 <div class="container-fluid text-center cont-3 ext">
-	<div class="col-md-6 container-fluid text-center cont-dark-grey icons">
+	<div class="col-md-6 container-fluid text-center cont-dark-grey icons cont-box3">
 		<h3>Nuestros valores</h3>
 		<div class="col-md-6">
 			<i class="fas fa-car-side"></i>
@@ -135,7 +135,7 @@
 			<h4>Atencion 24/7</h4>
 		</div>
 	</div>
-	<div class="col-md-6 container-fluid text-center cont-light-blue">
+	<div class="col-md-6 container-fluid text-center cont-light-blue cont-box3">
 		<div class="jumbotron">
 			<h2>Cotizacion</h2>
 			<form method="post" action="{{ route('contizacionForm') }}"  role="form">

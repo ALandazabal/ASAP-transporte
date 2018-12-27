@@ -10,7 +10,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 class TransferMail extends Mailable
 {
 
-    public $user;
+    
 
     use Queueable, SerializesModels;
 
@@ -19,9 +19,9 @@ class TransferMail extends Mailable
      *
      * @return void
      */
-    public function __construct($user)
+    public function __construct()
     {
-        $this->user = $user;
+        
     }
 
     /**
@@ -31,6 +31,7 @@ class TransferMail extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.transfermail');
+        /*return $this->markdown('emails.transfermail');*/
+        return $this->view('mails.demo');
     }
 }

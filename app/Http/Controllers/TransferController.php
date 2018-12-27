@@ -9,6 +9,8 @@ use App\Precio;
 use App\Tviaje;
 use App\Passenger;
 use App\Servicio;
+use App\Statetf;
+use App\Statetransfer;
 use App\Transvcio;
 use App\User;
 use App\Mail\TransferMail;
@@ -146,6 +148,7 @@ class TransferController extends Controller
         $temp->name = $request->get('name');
         $temp->email = $request->get('email');
         $temp->passengers = $request->input('passenger');
+        $temp->suitcase = $request->input('suitcase');
         $temp->date_pick = $request->get('date');
         $temp->time_pick = $request->get('time');
         $total = $preciod->precio + $cuotaPax + $cuotaGuia;
@@ -153,7 +156,7 @@ class TransferController extends Controller
         $temp->save();
 
 
-        $transfer = DB::table('transfers')->where([['vehicle_id', $request->get('vehicle')], ['user_id', $request->user()->id],['precio_id', $preciod->id], ['name', $request->get('name')], ['email', $request->get('email')], ['passengers', $request->input('passenger')], ['price', $total], ['date_pick', $request->get('date')], ['time_pick', $request->get('time')],])->latest()->first();
+        $transfer = DB::table('transfers')->where([['vehicle_id', $request->get('vehicle')], ['user_id', $request->user()->id],['precio_id', $preciod->id], ['name', $request->get('name')], ['email', $request->get('email')], ['passengers', $request->input('passenger')], ['suitcase', $request->input('suitcase')], ['price', $total], ['date_pick', $request->get('date')], ['time_pick', $request->get('time')],])->latest()->first();
 
         if($cuotaPax != 0){
             $tserv = new Transvcio();
@@ -168,6 +171,12 @@ class TransferController extends Controller
             $tserv->transfer()->associate($transfer->id);
             $tserv->save();
         }
+
+        //State table
+        $state = new Statetransfer();
+        $state->statetf()->associate(1);
+        $state->transfer()->associate($transfer->id);
+        $state->save();
 
         if($request->input('pago') == 'webpay'){
             /*$transaction = (new Webpay(Configuration::forTestingWebpayPlusNormal()))
@@ -204,7 +213,9 @@ class TransferController extends Controller
             echo RedirectorHelper::redirectHTML($response->url, $response->token);
         }
 
-        Mail::to($request->get('email'))->send(new Transfer($request->get('name')));
+        /*Mail::to($request->get('email'))->send(new Transfer($request->get('name')));*/
+        Mail::to($request->get('email'))->send(new TransferMail());
+
         //\Mail::to('angelica.informatik@gmail.com')->send(new TransferMail($request->get('email')));
 
         //return redirect()->route('transfer.create')->with('success', 'Se envió el formulario.  El total fue de: '.$total);

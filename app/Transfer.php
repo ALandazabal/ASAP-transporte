@@ -32,6 +32,10 @@ class Transfer extends Model
     	return $this->hasMany('App\transvcio');
     }
 
+    public function statetransfer(){
+        return $this->hasMany('App\Statetransfer');
+    }
+
     public function scopeEmail($user_id){
         if($user_id)
             return Transfer::find($user_id);
