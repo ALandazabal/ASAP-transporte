@@ -39,9 +39,20 @@ class HomeController extends Controller
         $vehicles = Vehicle::all();
         $comunas = Comuna::all();
         $tposviaje = Tviaje::all();
+        $servicio = DB::table('servicios')->where('id', 3)->first();
 
         $preciod = DB::table('precios')->where([['comuna_id', $request->input('comuna')],['tviaje_id', $request->input('tviaje')],])->first();
-        $success = "El costo es ".$preciod->precio;
+
+        if(!$preciod){
+            $success = "Lo sentimos, no hay precios para esta elección";
+        }else{
+            $cuotaPax = 0;
+            if($request->input('passenger') > 4){
+                $cuotaPax = ($request->input('passenger') - 4) * $servicio->price;
+            }
+            $total = $preciod->precio+$cuotaPax;
+            $success = "El costo es ".$total;
+        }
         
         /*return view('index')->with('slider', $slider);*/
         return view('index', compact('slider','vehicles','comunas', 'tposviaje', 'success'));

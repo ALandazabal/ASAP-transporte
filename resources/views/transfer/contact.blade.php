@@ -60,12 +60,12 @@
 						<div class="row">
 							<div class="col-xs-6">
 								<div class="form-group">
-									<label for="name">Origen: </label><label class="dataTransfer">{{ $form_data['origin'] }}</label>
+									<label for="name">Transfer Desde/Hacia: </label><label class="dataTransfer">{{ $form_data['origin'] }}</label>
 								</div>
 							</div>
 							<div class="col-xs-6">
 								<div class="form-group">
-									<label for="email">Destino: </label><label class="dataTransfer">{{ $comu->name }}</label>
+									<label for="email">Comuna: </label><label class="dataTransfer">{{ $comu->name }}</label>
 								</div>
 							</div>
 						</div>

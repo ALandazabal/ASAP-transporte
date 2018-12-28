@@ -47,7 +47,7 @@
 						<div class="row">
 							<div class="col-xs-12">
 								<div class="form-group">
-									<label for="Origin2">Origen:</label>
+									<label for="Origin2">Transfer Desde/Hacia:</label>
 									<select class="form-control" name="origin2" disabled>
 									<option>Aeropuerto Internacional Comodoro Arturo Medino Benítez</option>
 									</select>
@@ -70,7 +70,7 @@
 						<div class="row">
 							<div class="col-xs-12">
 								<div class="form-group">
-									<label for="Comuna">Destino:</label>
+									<label for="Comuna">Comuna:</label>
 									<select class="form-control" name="comuna">
 										@foreach( $comunas as $comuna)
 										<option value="{{ $comuna->id }}">{{ $comuna->name }}</option>

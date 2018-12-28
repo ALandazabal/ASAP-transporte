@@ -52,7 +52,7 @@
 		</div>
 	</div>
 </div>
-<div class="container-fluid  text-center cont-2 ext  cont-light-grey">
+{{-- <div class="container-fluid  text-center cont-2 ext  cont-light-grey">
 	<h2>Nuestra Clientela</h2>
 	<div class="container-fluid ext">
 		<script type="text/javascript">
@@ -114,10 +114,10 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div> --}}
 <div class="container-fluid text-center cont-3 ext">
 	<div class="col-md-6 container-fluid text-center cont-dark-grey icons cont-box3">
-		<h3>Nuestros valores</h3>
+		<h3 id="iconValores">Nuestros valores</h3>
 		<div class="col-md-6">
 			<i class="fas fa-car-side"></i>
 			<h4>Discresion</h4>
@@ -135,7 +135,7 @@
 			<h4>Atencion 24/7</h4>
 		</div>
 	</div>
-	<div class="col-md-6 container-fluid text-center cont-light-blue cont-box3">
+	<div id="prueba" class="col-md-6 container-fluid text-center cont-light-blue cont-box3">
 		<div class="jumbotron">
 			<h2>Cotizacion</h2>
 			<form method="post" action="{{ route('contizacionForm') }}"  role="form">
@@ -151,8 +151,13 @@
 					}
 				?>
 				<div class="form-group">
+					<select class="form-control" name="origin2" disabled>
+						<option>Aeropuerto Internacional Comodoro Arturo Medino Benítez</option>
+					</select>
+				</div>
+				<div class="form-group">
 					<select class="form-control" name="tviaje">
-						<option value="null">Seleccione una opcion</option>
+						<option value="null">Tipo de servicio</option>
 						@foreach( $tposviaje as $tviaje)
 						<option value="{{ $tviaje->id }}">{{ $tviaje->descripcion }}</option>
 						@endforeach
@@ -160,15 +165,23 @@
 				</div>
 				<div class="form-group">
 					<select class="form-control" name="comuna">
-						<option value="null">Seleccione una opcion</option>
+						<option value="null">Punto de Origen/Destino</option>
 						@foreach( $comunas as $comuna)
 						<option value="{{ $comuna->id }}">{{ $comuna->name }}</option>
 						@endforeach
 					</select>
 				</div>
 				<div class="form-group">
-					<!-- <button type="submit" class="btn btn-primary">Enviar</button> -->
-					<button type="button" data-toggle="modal" data-target="#create" class="btn btn-primary">Enviar</button>
+					<select class="form-control" name="passenger">
+						<option value="null">Cantidad de pasajeros</option>
+						@for($i = 1; $i < 9; $i++)
+							<option value="{{ $i }}">{{ $i }}</option>
+						@endfor
+					</select>
+				</div>
+				<div class="form-group">
+					 <button type="submit" class="btn btn-primary">Enviar</button> 
+					<!--<button type="button" data-toggle="modal" data-target="#create" class="btn btn-primary">Enviar</button>-->
 				</div>
 			</form>
 		</div>
@@ -179,7 +192,7 @@
 		<h3>Registrate</h3>
 		<span class="text-light">Para recibir atencion personalizada, noticias y promociones de nuestros servicios.</span>
 	</div>
-	<div class="col-md-6">
+	<div class="col-md-6" id="contactForm">
 		<form>
 			<div class="col-md-9">
 				<input type="text" class="form-control" placeholder="Ingrese su E-mail" name="">

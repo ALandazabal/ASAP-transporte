@@ -69,6 +69,16 @@
 										<input type="text" name="vehicle" class="form-control input-sm" value="{{ $transfer->precio->comuna->name }}" disabled>
 									</div>
 								</div>
+								<div class="col-xs-12">
+									<div class="form-group">
+										<input type="text" name="passenger" class="form-control input-sm" value="{{ $transfer->passengers }}" disabled>
+									</div>
+								</div>
+								<div class="col-xs-12">
+									<div class="form-group">
+										<input type="text" name="suitcase" class="form-control input-sm" value="{{ $transfer->suitcase }}" disabled>
+									</div>
+								</div>
 							</div>
 							<div class="row">
 								<div class="col-xs-12">

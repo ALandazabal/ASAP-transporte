@@ -55,7 +55,7 @@ b, h1, h2, h3{
 
 /*------------- Body -------------*/
 section .container-fluid{
-	padding: 15px;
+	padding: 30px 20px;
 }
 section .container-fluid h1{
 	font-size: 54px;
@@ -281,5 +281,13 @@ footer .container-fluid .row a{
 }
 
 .cont-box3{
-	height: 340px;
+	height: 470px;
+}
+
+#iconValores{
+	margin: 50px;
+}
+
+#contactForm{
+	padding-top: 13px;
 }

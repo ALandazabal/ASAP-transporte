@@ -26,7 +26,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-8 col-md-offset-2 text-right">
+					<div class="col-md-10 col-md-offset-2 text-right">
 						<button class="btn btn-success" type="submit">Buscar</button>
 					</div>	
 				</div>

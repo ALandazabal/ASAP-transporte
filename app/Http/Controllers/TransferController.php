@@ -178,25 +178,7 @@ class TransferController extends Controller
         $state->transfer()->associate($transfer->id);
         $state->save();
 
-        if($request->input('pago') == 'webpay'){
-            /*$transaction = (new Webpay(Configuration::forTestingWebpayPlusNormal()))
-               ->getNormalTransaction();*/
-
-            // Identificador que será retornado en el callback de resultado:
-           /* $sessionId = "pruebaWebpay";*/
-            
-            /*$returnUrl ="https://localhost:8000/transfer/result";*/
-            /*$returnUrl ="http://asap.entunegocio.cl/transfer/result";*/
-            /*$finalUrl = "https://callback/final/post/comprobante/webpay";*/
-            /*$finalUrl = "http://asap.entunegocio.cl/transfer/result";
-            $initResult = $transaction->initTransaction(
-                    $total, $transfer->id, $sessionId, $returnUrl, $finalUrl);
-
-            $formAction = $initResult->url;
-            $tokenWs = $initResult->token;
-
-            return view('transfer.pagar', compact('formAction', 'tokenWs'));*/
-            
+        if($request->input('pago') == 'webpay'){            
 
             // Obtenemos los certificados y llaves para utilizar el ambiente de integración de Webpay Normal.
             $bag = CertificationBagFactory::integrationWebpayNormal();

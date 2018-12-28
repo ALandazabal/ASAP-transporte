@@ -34,7 +34,7 @@
 	</div>
 	<div class="col-md-12 cont-1 text-center">
 		<h3>Si no desea escribir ¡Llamenos!</h3>
-		<h4>+56 2 2866 8950</h4>
+		<h2>+56 2 2866 8950</h2>
 	</div>
 </div>
 <div class="container-fluid cont-2 ext">
