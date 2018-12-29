@@ -36,46 +36,61 @@
 								</div>
 								<div class="col-xs-12">
 									<div class="form-group">
+										<label class="col-md-6">Nombre:</label>
 										<input type="text" name="name" id="name" class="form-control input-sm" value="{{ $transfer->name }}" disabled>
 									</div>
 								</div>
 								<div class="col-xs-12">
 									<div class="form-group">
+										<label class="col-md-6">Email:</label>
 										<input type="email" name="email" id="email" class="form-control input-sm" value="{{ $transfer->email }}" disabled>
 									</div>
 								</div>
 								<div class="col-xs-12">
 									<div class="form-group">
+										<label class="col-md-6">Fecha:</label>
 										<input type="date" name="date" class="form-control input-sm" value="{{ $transfer->date_pick }}" disabled>
 									</div>
 								</div>
 								<div class="col-xs-12">
 									<div class="form-group">
+										<label class="col-md-6">Hora:</label>
 										<input type="time" name="time" class="form-control input-sm" value="{{ $transfer->time_pick }}" disabled>
 									</div>
 								</div>
 								<div class="col-xs-12">
 									<div class="form-group">
+										<label class="col-md-6">Tipo de servicio:</label>
 										<input type="text" name="tviaje" class="form-control input-sm" value="{{ $transfer->precio->tviaje->descripcion }}" disabled>
 									</div>
 								</div>
 								<div class="col-xs-12">
 									<div class="form-group">
+										<label class="col-md-6">Vehículo:</label>
 										<input type="text" name="vehicle" class="form-control input-sm" value="{{ $transfer->vehicle->description }}" disabled>
 									</div>
 								</div>
 								<div class="col-xs-12">
 									<div class="form-group">
+										<label class="col-md-6">Comuna:</label>
 										<input type="text" name="vehicle" class="form-control input-sm" value="{{ $transfer->precio->comuna->name }}" disabled>
 									</div>
 								</div>
 								<div class="col-xs-12">
 									<div class="form-group">
+										<label class="col-md-6">Precio:</label>
+										<input type="text" name="vehicle" class="form-control input-sm" value="{{ $transfer->precio->precio }}" disabled>
+									</div>
+								</div>
+								<div class="col-xs-12">
+									<div class="form-group">
+										<label class="col-md-6">Cantidad de pasajeros:</label>
 										<input type="text" name="passenger" class="form-control input-sm" value="{{ $transfer->passengers }}" disabled>
 									</div>
 								</div>
 								<div class="col-xs-12">
 									<div class="form-group">
+										<label class="col-md-6">Cantidad de maletas:</label>
 										<input type="text" name="suitcase" class="form-control input-sm" value="{{ $transfer->suitcase }}" disabled>
 									</div>
 								</div>

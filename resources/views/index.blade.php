@@ -7,6 +7,7 @@
 @endsection
 @endsection
 @section('content')
+
 <div class="container-fluid cont-1 text-center ext cont-light-grey">
 	<h2>Bienvenido a ASAP</h2>
 	<div class="col-md-6">
@@ -21,7 +22,7 @@
 	</div>
 </div>
 <div class="container-fluid  text-center cont-2 ext">
-	<h2>Vehiculos Disponibles</h2>
+	<h2>Vehículos Disponibles</h2>
 	<div class="">
 		<script type="text/javascript">
 			$(document).ready(function() {
@@ -118,26 +119,31 @@
 <div class="container-fluid text-center cont-3 ext">
 	<div class="col-md-6 container-fluid text-center cont-dark-grey icons cont-box3">
 		<h3 id="iconValores">Nuestros valores</h3>
-		<div class="col-md-6">
-			<i class="fas fa-car-side"></i>
-			<h4>Discresion</h4>
+		<div class="row iconValores">
+			<div class="col-md-6">
+				<i class="fas fa-car-side"></i>
+				<h4>Discresion</h4>
+			</div>
+			<div class="col-md-6">
+				<i class="fas fa-truck-pickup"></i>
+				<h4>Comodidad</h4>
+			</div>
 		</div>
-		<div class="col-md-6">
-			<i class="fas fa-truck-pickup"></i>
-			<h4>Comodidad</h4>
+		<div class="row iconValores">
+			<div class="col-md-6">
+				<i class="fas fa-helicopter"></i>
+				<h4>Puntualidad</h4>
+			</div>
+			<div class="col-md-6">
+				<i class="fas fa-shuttle-van"></i>
+				<h4>Atencion 24/7</h4>
+			</div>
 		</div>
-		<div class="col-md-6">
-			<i class="fas fa-helicopter"></i>
-			<h4>Puntualidad</h4>
-		</div>
-		<div class="col-md-6">
-			<i class="fas fa-shuttle-van"></i>
-			<h4>Atencion 24/7</h4>
-		</div>
+		
 	</div>
 	<div id="prueba" class="col-md-6 container-fluid text-center cont-light-blue cont-box3">
 		<div class="jumbotron">
-			<h2>Cotizacion</h2>
+			<h2>Cotización</h2>
 			<form method="post" action="{{ route('contizacionForm') }}"  role="form">
 				{{ csrf_field() }}
 				<!-- @if(Session::has('success'))
@@ -146,9 +152,29 @@
 				</div>
 				@endif -->
 				<?php
-					if(isset($success)){
-						echo '<label>'.$success.'</label>';
-					}
+					if(isset($success)){ ?>
+						{{-- echo '<label>'.$success.'</label>'; --}}
+						<div class="modal" tabindex="-1" role="dialog" id="myModal" style="display: block;">
+						  <div class="modal-dialog" role="document">
+						    <div class="modal-content">
+						      <div class="modal-header">
+						        {{-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> --}}
+						        <h3 class="modal-title">Cotización realizada</h3>
+						      </div>
+						      <div class="modal-body">
+						      	<p>La cotización para el tipo de viaje: <?php echo '<label>'.$sviaje.'</label>'; ?> y hacia/desde la comuna: <?php echo '<label>'.$scomu.'</label>'; ?>, tiene un valor de <?php echo '<label>'.$success.'</label>'; ?>
+						      	</p>
+						      	</br>
+						      	<p>Le recordamos que por cada pasajero extra (superior a 4), se le realizará una recarga de <?php echo '<label>'.$paxtra.'</label>'; ?></p>
+						      </div>
+						      <div class="modal-footer">
+						        <button id="closeButtonModal" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						        {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
+						      </div>
+						    </div>
+						  </div>
+						</div>
+				<?php	}
 				?>
 				<div class="form-group">
 					<select class="form-control" name="origin2" disabled>
@@ -203,5 +229,12 @@
 		</form>
 	</div>
 </div>
+
+
+<script type="text/javascript">
+	$('#closeButtonModal').click(function () {
+	  $('#myModal').toggle();
+	})
+</script>
 @endsection
 <!-- @include('transfer.cotizacion') -->

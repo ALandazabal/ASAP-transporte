@@ -43,18 +43,25 @@ class HomeController extends Controller
 
         $preciod = DB::table('precios')->where([['comuna_id', $request->input('comuna')],['tviaje_id', $request->input('tviaje')],])->first();
 
+        $search = DB::table('tviajes')->where('id', $request->input('tviaje'))->first();
+        $sviaje = $search->descripcion;
+
+        $search = DB::table('comunas')->where('id', $request->input('comuna'))->first();
+        $scomu = $search->name;
+
+        $paxtra = $servicio->price;
+
         if(!$preciod){
             $success = "Lo sentimos, no hay precios para esta elección";
         }else{
             $cuotaPax = 0;
             if($request->input('passenger') > 4){
-                $cuotaPax = ($request->input('passenger') - 4) * $servicio->price;
+                $cuotaPax = ($request->input('passenger') - 4) * $paxtra;
             }
-            $total = $preciod->precio+$cuotaPax;
-            $success = "El costo es ".$total;
+            $success = $preciod->precio+$cuotaPax;
         }
         
         /*return view('index')->with('slider', $slider);*/
-        return view('index', compact('slider','vehicles','comunas', 'tposviaje', 'success'));
+        return view('index', compact('slider','vehicles','comunas', 'tposviaje', 'success', 'sviaje', 'scomu', 'paxtra'));
     }
 }

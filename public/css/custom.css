@@ -100,7 +100,7 @@ section .jumbotron{
 	),-------------*/
 .owl-cars.owl-carousel .owl-item{
 	color: #fff;
-	height: 500px;
+	/*height: 500px;*/
 }
 .owl-cars.owl-carousel .owl-item .item{
 	padding: 0px;
@@ -109,7 +109,7 @@ section .jumbotron{
 }
 .owl-cars.owl-carousel .owl-item .test{
 	width: 100%;
-	height: 100%;
+	/*height: 100%;*/
 	background-color: rgba(0,0,0,0.5);
 }
 .owl-cars.owl-carousel .owl-item img, .owl-carousel .owl-item .test{
@@ -281,7 +281,7 @@ footer .container-fluid .row a{
 }
 
 .cont-box3{
-	height: 470px;
+	height: 460px;
 }
 
 #iconValores{
@@ -290,4 +290,13 @@ footer .container-fluid .row a{
 
 #contactForm{
 	padding-top: 13px;
+}
+.jumbotron p{
+	font-size: 15px;
+}
+.iconValores{
+	margin: 20px;
+}
+.owl-carousel .owl-stage-outer{
+	overflow: inherit;
 }

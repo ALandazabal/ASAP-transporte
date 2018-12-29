@@ -36,26 +36,31 @@
 								</div>
 								<div class="col-xs-12">
 									<div class="form-group">
+										<label class="col-md-6">Nombre:</label>
 										<input type="text" name="name" id="name" class="form-control input-sm" value="{{ $transfer->name }}">
 									</div>
 								</div>
 								<div class="col-xs-12">
 									<div class="form-group">
+										<label class="col-md-6">Email:</label>
 										<input type="email" name="email" id="email" class="form-control input-sm" value="{{ $transfer->email }}">
 									</div>
 								</div>
 								<div class="col-xs-12">
 									<div class="form-group">
-										<input type="date" name="date" class="form-control input-sm" value="{{ $transfer->date_pick }}">
+										<label class="col-md-6">Fecha:</label>
+										<input type="date" name="date" class="form-control input-sm" value="{{ $transfer->date_pick }}" min="<?php $hoy=date('Y-m-d'); echo $hoy; ?>">
 									</div>
 								</div>
 								<div class="col-xs-12">
 									<div class="form-group">
+										<label class="col-md-6">Hora:</label>
 										<input type="time" name="time" class="form-control input-sm" value="{{ $transfer->time_pick }}">
 									</div>
 								</div>
 								<div class="col-xs-12">
 									<div class="form-group">
+										<label class="col-md-6">Tipo de servicio:</label>
 										<select name="tviaje" class="form-control">
 											<option value="{{ $transfer->precio->tviaje->id }}">{{ $transfer->precio->tviaje->descripcion }}</option>
 											@foreach($tviajes as $tviaje)
@@ -68,6 +73,7 @@
 								</div>
 								<div class="col-xs-12">
 									<div class="form-group">
+										<label class="col-md-6">Vehículo:</label>
 										<select name="vehicle" class="form-control">
 										<option value="{{ $transfer->vehicle->id }}">{{ $transfer->vehicle->description }}</option>
 										@foreach($vehicles as $vehicle)
@@ -80,6 +86,7 @@
 								</div>
 								<div class="col-xs-12">
 									<div class="form-group">
+										<label class="col-md-6">Comuna:</label>
 										<select name="comuna" class="form-control">
 										<option value="{{ $transfer->precio->comuna->id }}">{{ $transfer->precio->comuna->name }}</option>
 										@foreach($comunas as $comuna)
@@ -88,6 +95,24 @@
 										@endif
 										@endforeach
 										</select>
+									</div>
+								</div>
+								<div class="col-xs-12">
+									<div class="form-group">
+										<label class="col-md-6">Precio:</label>
+										<input type="text" name="vehicle" class="form-control input-sm" value="{{ $transfer->precio->precio }}">
+									</div>
+								</div>
+								<div class="col-xs-12">
+									<div class="form-group">
+										<label class="col-md-6">Cantidad de pasajeros:</label>
+										<input type="text" name="passenger" class="form-control input-sm" value="{{ $transfer->passengers }}" >
+									</div>
+								</div>
+								<div class="col-xs-12">
+									<div class="form-group">
+										<label class="col-md-6">Cantidad de maletas:</label>
+										<input type="text" name="suitcase" class="form-control input-sm" value="{{ $transfer->suitcase }}">
 									</div>
 								</div>
 							</div>
