@@ -1,8 +1,8 @@
-@extends('layouts.default')
+@extends('layouts.users')
 @section('content')
 
 <div class="container">
-	<div class="col-md-4 text-center">
+	<div class="col-md-4 col-md-push-4 text-center">
 		@if (count($errors) > 0)
 		<div class="alert alert-danger">
 			<strong>Error!</strong> Revise los campos obligatorios.<br><br>
@@ -30,7 +30,7 @@
 						<label for="Description">Descripción</label>
 						<input type="text" class="form-control" name="description" required>
 						<label for="Passengers">Pasajeros</label>
-						<input type="number" max="100" class="form-control" name="passengers" required>
+						<input type="number" max="100" min="0" class="form-control" name="passengers" required>
 						<label for="Photo">Imagen</label>
 						<input type="file" class="form-control" name="photo">
 						<button type="submit" class="btn btn-success">Agregar</button>

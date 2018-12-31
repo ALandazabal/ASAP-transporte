@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\User;
 use App\Role;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class usersController extends Controller
 {
@@ -103,7 +104,13 @@ class usersController extends Controller
      */
     public function destroy($id)
     {
-        User::find($id)->delete();
-        return redirect()->route('users.index')->with('success','Usuario eliminado satisfactoriamente');
+        $user = DB::table('transfers')->where('user_id', $id)->first();
+
+        if($user){
+            return redirect()->route('users.index')->with('success','No se puede eliminar el usuario porque se tiene registro en los transfer');
+        }else{
+            User::find($id)->delete();
+            return redirect()->route('users.index')->with('success','Usuario eliminado satisfactoriamente');
+        }        
     }
 }

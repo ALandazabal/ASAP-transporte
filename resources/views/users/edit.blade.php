@@ -39,21 +39,21 @@
 										<input type="email" name="email" id="email" class="form-control input-sm" value="{{ $user->email }}">
 									</div>
 								</div>
-								<div class="row">
-									<div class="col-xs-12">
-										<div class="form-group">
-											<select class="form-control" name="role">
-											@if ( $user->isAdmin() )
-											<option value="1">Admin</option>
-											<option value="2">User</option>
-											@else
-											<option value="2">User</option>
-											<option value="1">Admin</option>
-											@endif
-											</select>
-										</div>
+								{{-- <div class="row"> --}}
+								<div class="col-xs-12">
+									<div class="form-group">
+										<select class="form-control" name="role">
+										@if ( $user->isAdmin() )
+										<option value="1">Admin</option>
+										<option value="2">User</option>
+										@else
+										<option value="2">User</option>
+										<option value="1">Admin</option>
+										@endif
+										</select>
 									</div>
 								</div>
+								{{-- </div> --}}
 							</div>
 							<div class="row">
 								<div class="col-xs-12">

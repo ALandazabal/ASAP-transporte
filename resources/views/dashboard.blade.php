@@ -1,4 +1,3 @@
-
 @extends('layouts.users')
 @section('content')
     <div class="container">
@@ -73,6 +72,19 @@
                                 </div>
                                 <div class="panel-body">
                                     Añade, modifica, elimina items para mostrar en el slider de la página principal.<br>
+                                    <center>
+                                    <a href="{{ route('sliderconfig.index') }}" class="btn btn-default">Ir!</a>
+                                    </center>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h5 class="panel-title">Administrar Transfers/Tours</h5>
+                                </div>
+                                <div class="panel-body">
+                                    Añade, modifica, elimina los precios de cada servicio ofertado.<br>
                                     <center>
                                     <a href="{{ route('sliderconfig.index') }}" class="btn btn-default">Ir!</a>
                                     </center>

@@ -113,8 +113,20 @@ class ComunaController extends Controller
      */
     public function destroy($id)
     {
-        Comuna::find($id)->delete();
+        $precio = DB::table('precios')->where('comuna_id', $id)->first();
 
-        return redirect()->route('comuna.index')->with('success', 'Eliminada la Comuna.');
+        $transfer = DB::table('transfers')->where('precio_id', $precio->id)->first();
+
+        if($transfer){
+            return redirect()->route('comuna.index')->with('success','No se puede eliminar la comuna porque se tiene registro en los transfer');
+        }else{
+            Precio::find($precio)->delete();
+
+            Comuna::find($id)->delete();
+            
+            return redirect()->route('comuna.index')->with('success', 'Eliminada la Comuna exitosamente.');
+        }
+
+
     }
 }

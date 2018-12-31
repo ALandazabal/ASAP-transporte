@@ -13,6 +13,7 @@
 
     <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
     <link rel="stylesheet" href="{{asset('owlcarousel/assets/owl.carousel.min.css')}}">
+    <script type="text/javascript" src="{{asset('js/jquery.min.js')}}"></script>
 </head>
 <body>
     <header>
@@ -45,14 +46,15 @@
                             <ul class="dropdown-menu">
                                 @if( Auth::user()->isAdmin())
                                 <li>
-                                    <a href="{{ route('sliderconfig.index') }}">Slider</a>
+                                    {{-- <a href="{{ route('sliderconfig.index') }}">Slider</a> --}}
+                                    <a href="{{ route('dashboard') }}">Dashboard</a>
                                 </li>
                                 @endif
                                 <li>
                                     <a href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
-                                        Logout
+                                        Salir
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -70,10 +72,10 @@
     @yield('content')
 </section>
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
     <script src="{{ asset('js/events.js') }}"></script>
-    <script type="text/javascript" src="{{asset('js/jquery.min.js')}}"></script>
+   {{--  <script type="text/javascript" src="{{asset('js/jquery.min.js')}}"></script> --}}
     <script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('owlcarousel/owl.carousel.min.js')}}"></script>
+    {{-- <script src="{{asset('owlcarousel/owl.carousel.min.js')}}"></script> --}}
 </body>
 </html>

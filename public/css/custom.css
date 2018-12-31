@@ -34,7 +34,7 @@
 	src: url("../fonts/poppins/Poppins-Light.ttf") format('truetype');
 }
 /*------------- Base -------------*/
-section {padding-top: 90px;}
+/*section {padding-top: 90px;}*/
 *{
 	font-family: 'Poppins', sans-serif;
 }

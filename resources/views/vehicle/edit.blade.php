@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.users')
 @section('content')
 <div class="row">
 	<section class="content">
@@ -31,18 +31,21 @@
 							<div class="row">
 								<div class="col-xs-12">
 									<div class="form-group">
+										<label class="col-md-6">Descripcion:</label>
 										<input type="text" name="description" id="description" class="form-control input-sm" value="{{ $car->description }}" required>
 									</div>
 								</div>
 								<div class="col-xs-12">
 									<div class="form-group">
-										<input type="number" max="100" name="passengers" id="passengers" class="form-control input-sm" value="{{ $car->passengers }}" required>
+										<label class="col-md-6">Cantidad de pasajeros:</label>
+										<input type="number" max="100" min="0" name="passengers" id="passengers" class="form-control input-sm" value="{{ $car->passengers }}" required>
 									</div>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-xs-12">
 									<div class="form-group">
+										<label class="col-md-6">Foto del vehículo:</label>
 										<input type="file" name="photo" id="photo" class="form-control input-sm" value="{{ $car->photo }}">
 										<input type="hidden" title="Fallback when no photo provided." name="photo-name" value="{{ $car->photo }}">
 									</div>
