@@ -32,7 +32,7 @@
 						<label for="Passengers">Pasajeros</label>
 						<input type="number" max="100" min="0" class="form-control" name="passengers" required>
 						<label for="Photo">Imagen</label>
-						<input type="file" class="form-control" name="photo">
+						<input type="file"  name="photo">
 						<button type="submit" class="btn btn-success">Agregar</button>
 					</form>
 				</div>

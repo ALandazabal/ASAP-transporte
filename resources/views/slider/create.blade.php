@@ -1,8 +1,8 @@
-@extends('layouts.default')
+@extends('layouts.users')
 @section('content')
 
 <div class="container">
-	<div class="col-md-4 text-center">
+	<div class="col-md-4 col-md-push-4 text-center">
 		@if (count($errors) > 0)
 		<div class="alert alert-danger">
 			<strong>Error!</strong> Revise los campos obligatorios.<br><br>

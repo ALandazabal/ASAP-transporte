@@ -40,25 +40,33 @@
 									</div>
 								</div>
 								{{-- <div class="row"> --}}
-								<div class="col-xs-12">
-									<div class="form-group">
-										<select class="form-control" name="role">
-										@if ( $user->isAdmin() )
-										<option value="1">Admin</option>
-										<option value="2">User</option>
-										@else
-										<option value="2">User</option>
-										<option value="1">Admin</option>
-										@endif
-										</select>
+								@if ( $user->isAdmin() )
+									<div class="col-xs-12">
+										<div class="form-group">
+											<select class="form-control" name="role">
+											@if ( $user->isAdmin() )
+											<option value="1">Admin</option>
+											<option value="2">User</option>
+											@else
+											<option value="2">User</option>
+											<option value="1">Admin</option>
+											@endif
+											</select>
+										</div>
 									</div>
-								</div>
+								@else
+									<input type="hidden" name="role" id="role" class="form-control input-sm" value="{{ $user->role_id }}">
+								@endif
 								{{-- </div> --}}
 							</div>
 							<div class="row">
 								<div class="col-xs-12">
 									<button class="btn btn-success" type="submit">Guardar</button>
-									<a href="{{ route('users.index') }}" class="btn btn-info" >Atrás</a>
+									@if($user->role_id == 1)
+										<a href="{{ route('users.index') }}" class="btn btn-info" >Atrás</a>
+									@else
+										<a href="{{ route('dashboard') }}" class="btn btn-info" >Atrás</a>
+									@endif
 								</div>	
 							</div>
 						</form>

@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.users')
 @section('content')
 
 <div class="container">
@@ -29,7 +29,7 @@
 						{{ csrf_field() }}
 						<label for="Name">Nombre</label>
 						<input type="text" class="form-control" name="name">
-						<label for="Description">Descripción</label>
+						{{-- <label for="Description">Descripción</label>
 						<input type="text" class="form-control" name="description">
 						<label for="tposviajei">Tipo de viaje</label>
 						<select class="form-control" name="tposviajei">
@@ -39,7 +39,7 @@
 							@endforeach
 						</select>
 						<label for="Price">Precio</label>
-						<input type="text" class="form-control" name="precio">
+						<input type="text" class="form-control" name="precio"> --}}
 						<label for="Distance">Distancia</label>
 						<input type="number" step=0.01 class="form-control" name="distance">
 						<label for="Coords">Coordenadas</label>

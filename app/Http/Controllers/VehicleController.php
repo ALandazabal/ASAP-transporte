@@ -39,7 +39,18 @@ class VehicleController extends Controller
     {
         $request->validate(['description' => 'required', 'passengers' => 'required']);
 
-        Vehicle::create($request->all());
+        $veh = new Vehicle();
+        $veh->description = $request->input('description');
+        $veh->passengers = $request->input('passengers');
+
+        if($request->hasFile('photo')){
+            $file = $request->file('photo');
+            $name = time().$file->getClientOriginalName();
+            $file->move(public_path().'/img/carimages/', $name);
+            $veh->photo = $name;
+        }
+        /*Vehicle::create($request->all());*/
+        $veh->save();
 
         return redirect()->route('vehicle.index')->with('success', 'Vehículo Registrado');
     }
@@ -79,7 +90,18 @@ class VehicleController extends Controller
     {
         $request->validate(['description' => 'required', 'passengers' => 'required']);
 
-        Vehicle::find($id)->update($request->all());
+        $veh = Vehicle::find($id);
+        $veh->description = $request->input('description');
+        $veh->passengers = $request->input('passengers');
+
+        if($request->hasFile('photo')){
+            $file = $request->file('photo');
+            $name = time().$file->getClientOriginalName();
+            $file->move(public_path().'/img/carimages/', $name);
+            $veh->photo = $name;
+        }
+        /*Vehicle::create($request->all());*/
+        $veh->save();
 
         return redirect()->route('vehicle.index')->with('success', 'Actualizado datos del Vehículo.');
     }

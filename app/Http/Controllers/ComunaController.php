@@ -42,7 +42,7 @@ class ComunaController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate(['name' => 'required', 'precio' => 'required', 'description' => 'required', 'tposviajei' => 'required']);
+        $request->validate(['name' => 'required']);
 
         /*Comuna::create($request->all());*/
         $temp = new Comuna();
@@ -54,15 +54,6 @@ class ComunaController extends Controller
             $temp->coords = $request->get('coords');
         }
         $temp->save();
-
-        $precio = DB::table('comunas')->where('name', $request->get('name'))->latest()->first();
-
-        $temp2 = new Precio();
-        $temp2->comuna()->associate($precio->id);
-        $temp2->tviaje()->associate($request->get('tposviajei'));
-        $temp2->precio = $request->get('precio');
-        $temp2->descripcion = $request->get('description');
-        $temp2->save();
 
         return redirect()->route('comuna.index')->with('success', 'Comuna añadida');
     }
@@ -84,9 +75,11 @@ class ComunaController extends Controller
      * @param  \App\Comuna  $comuna
      * @return \Illuminate\Http\Response
      */
-    public function edit(Comuna $comuna)
+    public function edit($id)
     {
-        return view('comuna.edit');
+        $comuna = Comuna::find($id);
+
+        return view('comuna.edit', compact('comuna'));
     }
 
     /**
@@ -98,11 +91,11 @@ class ComunaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate(['name' => 'required', 'description' => 'required', 'price' => 'required']);
+        $request->validate(['name' => 'required']);
 
         Comuna::find($id)->update($request->all());
         
-        return redirect()->route('comuna.index')->wit('success', 'Actualizado los datos de la comuna.');
+        return redirect()->route('comuna.index')->with('success', 'Actualizado los datos de la comuna.');
     }
 
     /**
@@ -115,18 +108,18 @@ class ComunaController extends Controller
     {
         $precio = DB::table('precios')->where('comuna_id', $id)->first();
 
-        $transfer = DB::table('transfers')->where('precio_id', $precio->id)->first();
+        if($precio){
+            $transfer = DB::table('transfers')->where('precio_id', $precio->id)->first();
 
-        if($transfer){
-            return redirect()->route('comuna.index')->with('success','No se puede eliminar la comuna porque se tiene registro en los transfer');
-        }else{
-            Precio::find($precio)->delete();
-
-            Comuna::find($id)->delete();
-            
-            return redirect()->route('comuna.index')->with('success', 'Eliminada la Comuna exitosamente.');
+            if($transfer){
+                return redirect()->route('comuna.index')->with('success','No se puede eliminar la comuna porque se tiene registro en los transfer');
+            }else{
+                Precio::find($precio)->delete();
+            }
         }
 
-
+        Comuna::find($id)->delete();
+                
+        return redirect()->route('comuna.index')->with('success', 'Eliminada la Comuna exitosamente.');
     }
 }

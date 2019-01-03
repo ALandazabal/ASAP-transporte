@@ -250,6 +250,7 @@ footer .container-fluid .row a{
 	float: right;
 }
 #container{
+	margin-top: 50px;
 	width: auto;
 	padding-right: 0;
 	padding-left: 0;

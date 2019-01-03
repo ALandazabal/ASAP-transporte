@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.users')
 @section('content')
 <div class="row">
 	<section class="content">
@@ -36,6 +36,19 @@
 								</div>
 								<div class="col-xs-12">
 									<div class="form-group">
+										<label class="col-md-6">Estado de servicio:</label>
+										<select name="status" class="form-control">
+											<option value="{{ $status->statetf->id }}">{{ $status->statetf->valor }}</option>
+											@foreach($estados as $estado)
+												@if( $estado->id != $status->statetf->id )
+													<option value="{{ $estado->id }}">{{ $estado->valor }}</option>
+												@endif
+											@endforeach
+										</select>
+									</div>
+								</div>
+								<div class="col-xs-12">
+									<div class="form-group">
 										<label class="col-md-6">Nombre:</label>
 										<input type="text" name="name" id="name" class="form-control input-sm" value="{{ $transfer->name }}">
 									</div>
@@ -49,7 +62,7 @@
 								<div class="col-xs-12">
 									<div class="form-group">
 										<label class="col-md-6">Fecha:</label>
-										<input type="date" name="date" class="form-control input-sm" value="{{ $transfer->date_pick }}" min="<?php $hoy=date('Y-m-d'); echo $hoy; ?>">
+										<input type="date" name="date" class="form-control input-sm" value="{{ $transfer->date_pick }}" min="{{ $transfer->date_pick }}">
 									</div>
 								</div>
 								<div class="col-xs-12">
@@ -100,7 +113,7 @@
 								<div class="col-xs-12">
 									<div class="form-group">
 										<label class="col-md-6">Precio:</label>
-										<input type="text" name="vehicle" class="form-control input-sm" value="{{ $transfer->precio->precio }}">
+										<input type="text" name="price" class="form-control input-sm" value="{{ $transfer->precio->precio }}">
 									</div>
 								</div>
 								<div class="col-xs-12">

@@ -23,7 +23,7 @@
 								<th>Título</th>
 								<th>Descripción</th>
 								<th>Imagen</th>
-								<th>Slider</th>
+								{{-- <th>Slider</th> --}}
 								<th>Modificar</th>
 								<th>Eliminar</th>
 							</thead>
@@ -35,13 +35,13 @@
 											<td>{{ $slide->title }}</td>
 											<td>{{ $slide->description }}</td>
 											<td><img src="../img/carimages/{{ $slide->photo }}" width="50px" height="25px"></td>
-											<td>
+											{{-- <td>
 												@if( $slide->slider)
 												<input type="checkbox" name="onSlider" checked>
 												@else
 												<input type="checkbox" name="onSlider">
 												@endif
-											</td>
+											</td> --}}
 											<td><a class="btn btn-primary btn-xs" href="{{action('SliderController@edit', $slide->id)}}" ><span class="glyphicon glyphicon-pencil"></span></a></td>
 											<td>
 												<form action="{{action('SliderController@destroy', $slide->id)}}" method="post">

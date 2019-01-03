@@ -44,12 +44,12 @@
                             </a>
 
                             <ul class="dropdown-menu">
-                                @if( Auth::user()->isAdmin())
+                               {{--  @if( Auth::user()->isAdmin()) --}}
                                 <li>
                                     {{-- <a href="{{ route('sliderconfig.index') }}">Slider</a> --}}
                                     <a href="{{ route('dashboard') }}">Dashboard</a>
                                 </li>
-                                @endif
+                                {{-- @endif --}}
                                 <li>
                                     <a href="{{ route('logout') }}"
                                         onclick="event.preventDefault();

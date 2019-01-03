@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.users')
 @section('content')
 <div class="row">
 	<section class="content">
@@ -32,6 +32,12 @@
 								<div class="col-xs-12">
 									<div class="form-group">
 										<h4>Login: <strong>{{ $transfer->user->name }}</strong></h4>
+									</div>
+								</div>
+								<div class="col-xs-12">
+									<div class="form-group">
+										<label class="col-md-6">Estado:</label>
+										<input type="text" name="status" id="status" class="form-control input-sm" value="{{ $status->statetf->valor }}" disabled>
 									</div>
 								</div>
 								<div class="col-xs-12">

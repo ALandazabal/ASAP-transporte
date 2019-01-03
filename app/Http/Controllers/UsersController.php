@@ -93,7 +93,12 @@ class usersController extends Controller
         $temp->role()->associate($request->get('role'));
         $temp->save();
 
-        return redirect()->route('users.index')->with('success','Usuario actualizado satisfactoriamente');
+        if($request->get('role')==1){
+            return redirect()->route('users.index')->with('success','Usuario actualizado satisfactoriamente');
+        }else{
+            return redirect()->route('dashboard')->with('success','Sus datos fueron actualizados satisfactoriamente');
+        }
+
     }
 
     /**

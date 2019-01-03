@@ -168,9 +168,9 @@
 									<div class="col-md-6">
 										<input type="radio" class="" name="pago" value="webpay"> WebPay+
 									</div>						
-									<div class="col-md-6">
+									{{-- <div class="col-md-6">
 										<input type="radio" class="" name="pago" value="paypal"> PayPal
-									</div>						
+									</div>	 --}}					
 								</div>
 							</div>
 						</div>

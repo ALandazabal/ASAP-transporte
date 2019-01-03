@@ -34,7 +34,7 @@ class SliderController extends Controller
         $slider->description = $request->get('description');
         if( isset($name) )
             $slider->photo = $name ;
-
+        $slider->slider = 1;
         $slider->save();
 
         return redirect()->route('sliderconfig.index')->with('success', 'Ha sido añadido el slide.');
@@ -48,7 +48,7 @@ class SliderController extends Controller
     public function edit($id)
     {
         $slider = Slide::find($id);
-        return view('slider.edit')->with('car', $slider);
+        return view('slider.edit')->with('slider', $slider);
     }
 
     public function update(Request $request, $id)

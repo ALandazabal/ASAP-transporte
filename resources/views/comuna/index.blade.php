@@ -23,7 +23,7 @@
 								<th>Nombre</th>
 								<th>Distancia</th>
 								<th>Coordenadas</th>
-								{{-- <th>Modificar</th> --}}
+								<th>Modificar</th>
 								<th>Eliminar</th>
 							</thead>
 							<tbody>
@@ -34,9 +34,9 @@
 											<td>{{ $comuna->name }}</td>
 											<td>{{ $comuna->distance }}</td>
 											<td>{{ $comuna->coords }}</td>
-											{{--
+											
 											<td><a class="btn btn-primary btn-xs" href="{{action('ComunaController@edit', $comuna->id)}}" ><span class="glyphicon glyphicon-pencil"></span></a></td>
-											--}}
+											
 											<td>
 												<form action="{{action('ComunaController@destroy', $comuna->id)}}" method="post">
 												{{csrf_field()}}

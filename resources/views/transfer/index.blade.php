@@ -55,6 +55,7 @@
 								<th>Modificar</th>
 							</thead>
 							<tbody>
+								@if($transfers != null)
 								@if($transfers->isNotEmpty())
 									@foreach($transfers as $transfer)  
 										<tr>
@@ -89,6 +90,11 @@
 											</td>
 										</tr>
 									@endforeach 
+								@else
+								<tr>
+									<td colspan="8">No hay registros !!</td>
+								</tr>
+								@endif
 								@else
 								<tr>
 									<td colspan="8">No hay registros !!</td>

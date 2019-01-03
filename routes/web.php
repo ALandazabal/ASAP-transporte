@@ -38,7 +38,7 @@ Route::group(['middleware' => ['auth']], function () {
 
 //-- Administradores
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
-    Route::resource('users','UsersController');
+    /*Route::resource('users','UsersController');*/
     Route::resource('sliderconfig', 'SliderController');
     Route::resource('comuna', 'ComunaController');
     Route::resource('vehicle', 'VehicleController');
@@ -46,8 +46,17 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::get('transfer', 'TransferController@index')->name('transfer.index');
     Route::patch('transfer/{transfer}', 'TransferController@update')->name('transfer.update');
     Route::get('transfer/{transfer}/show', 'TransferController@show');
-    Route::get('transfer/{transfer}/edit', 'TransferController@edit');
+   /* Route::get('transfer/{transfer}/edit', 'TransferController@edit');*/
 });
+Route::resource('users','UsersController');
+
+/*Route::get('transfer', 'TransferController@index')->name('transfer.index');
+    Route::patch('transfer/{transfer}', 'TransferController@update')->name('transfer.update');
+    Route::get('transfer/{transfer}/show', 'TransferController@show');*/
+    Route::get('transfer/{transfer}/edit', 'TransferController@edit');
+
+Route::get('/dahboard', 'TransferController@indexu')->name('transfer.indexu');
+Route::patch('/transfer/{transfer}', 'TransferController@cancel')->name('transfer.cancel');
 
 Route::get('/servicio', function () {
     return view('servicio');
@@ -69,3 +78,5 @@ Route::get('email', function(){
 Route::get('/transfer/pagar', function () {
     return view('info');
 });
+
+Route::resource('precios', 'PrecioController');
