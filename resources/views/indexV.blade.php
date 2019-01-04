@@ -10,8 +10,19 @@
 
 <div class="container-fluid cont-1 text-center ext cont-light-grey">
 	<h2>Bienvenido a transportes ASAP</h2>
+	{{-- <div class="col-md-6">
+		<h2><i class="fas fa-map-marked-alt"></i></h2>
+		<h3>Turismo</h3>
+		<span>Ofrecemos servicios de transporte turistico a cualquier lugar de Chile, para que usted pueda obtener un viaje placentero hacia su empresa o lugar de destino..</span>
+	</div>
+	<div class="col-md-6">
+		<h2><i class="fas fa-shuttle-van"></i></h2>
+		<h3>Servicio de Transfer</h3>
+		<span>Ofrecemos servicios de transporte para su empresa, organización o institución, con la seguridad de una empresa de trayectoria, compuesta por profesionales expertos en transporte.</span>
+	</div> --}}
 </div>
 <div class="container-fluid  text-center cont-2 ext">
+	{{-- <h2>Vehículos Disponibles</h2> --}}
 	<div class="">
 		<script type="text/javascript">
 			$(document).ready(function() {
@@ -42,6 +53,69 @@
 		</div>
 	</div>
 </div>
+{{-- <div class="container-fluid  text-center cont-2 ext  cont-light-grey">
+	<h2>Nuestra Clientela</h2>
+	<div class="container-fluid ext">
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('.owl-client').owlCarousel({
+					autoplay: true,
+					loop: true,
+				    responsiveClass:true,
+				    margin: 10,
+				    autoHeight:true,
+				    responsive:{
+						0:{
+							items:1
+						},
+						480:{
+							items:2
+						},
+						768:{
+							items:4
+						}
+					}
+				});
+			});
+		</script>
+		<div class="owl-client owl-carousel owl-theme">
+			<div class="item">
+				<div class="jumbotron cont-dark-grey">
+					<h3><i class="fas fa-plane"></i> Cloud Postale</h3>
+				</div>
+			</div>
+
+			<div class="item">
+				<div class="jumbotron cont-dark-grey">
+					<h3><i class="fas fa-hospital"></i> Medical Lungs</h3>
+				</div>
+			</div>
+
+			<div class="item">
+				<div class="jumbotron cont-dark-grey">
+					<h3><i class="fas fa-motorcycle"></i> Itachi Motors</h3>
+				</div>
+			</div>
+
+			<div class="item">
+				<div class="jumbotron cont-dark-grey">
+					<h3><i class="fas fa-american-sign-language-interpreting"></i> Logistic Things</h3>
+				</div>
+			</div>
+
+			<div class="item">
+				<div class="jumbotron cont-dark-grey">
+					<h3><i class="fas fa-futbol"></i>Football Club</h3>
+				</div>
+			</div>
+			<div class="item">
+				<div class="jumbotron cont-dark-grey">
+					<h3><i class="fas fa-tree"></i> Natural Fargo</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+</div> --}}
 <div class="container-fluid text-center cont-3 ext">
 	<div class="col-md-6 text-center cont-box3">
 		<div class="row iconValores cont-dark-grey icons">
@@ -54,6 +128,8 @@
 				<i class="fas fa-truck-pickup"></i>
 				<h4>Comodidad</h4>
 			</div>
+		{{-- </div>
+		<div class="row iconValores"> --}}
 			<div class="col-md-3">
 				<i class="fas fa-helicopter"></i>
 				<h4>Puntualidad</h4>
@@ -87,12 +163,19 @@
 			<h2>Cotización</h2>
 			<form method="post" action="{{ route('contizacionForm') }}"  role="form">
 				{{ csrf_field() }}
+				<!-- @if(Session::has('success'))
+				<div class="alert alert-info">
+					{{Session::get('success')}}
+				</div>
+				@endif -->
 				<?php
 					if(isset($success)){ ?>
+						{{-- echo '<label>'.$success.'</label>'; --}}
 						<div class="modal" tabindex="-1" role="dialog" id="myModal" style="display: block;">
 						  <div class="modal-dialog" role="document">
 						    <div class="modal-content">
 						      <div class="modal-header">
+						        {{-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> --}}
 						        <h3 class="modal-title">Cotización realizada</h3>
 						      </div>
 						      <div class="modal-body">
@@ -103,6 +186,7 @@
 						      </div>
 						      <div class="modal-footer">
 						        <button id="closeButtonModal" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						        {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
 						      </div>
 						    </div>
 						  </div>
@@ -140,11 +224,29 @@
 				</div>
 				<div class="form-group">
 					 <button type="submit" class="btn btn-primary">Enviar</button> 
+					<!--<button type="button" data-toggle="modal" data-target="#create" class="btn btn-primary">Enviar</button>-->
 				</div>
 			</form>
 		</div>
 	</div>
 </div>
+{{-- <div class="container-fluid ext register">
+	<div class="col-md-6">
+		<h3>Registrate</h3>
+		<span class="text-light">Para recibir atencion personalizada, noticias y promociones de nuestros servicios.</span>
+	</div>
+	<div class="col-md-6" id="contactForm">
+		<form>
+			<div class="col-md-9">
+				<input type="text" class="form-control" placeholder="Ingrese su E-mail" name="">
+			</div>
+			<div class="col-md-3">
+				<a href="{{ route('register') }}" class="btn btn-default">Registrate!</a>
+			</div>
+		</form>
+	</div>
+</div> --}}
+
 
 <script type="text/javascript">
 	$('#closeButtonModal').click(function () {
@@ -152,3 +254,4 @@
 	})
 </script>
 @endsection
+<!-- @include('transfer.cotizacion') -->

@@ -62,6 +62,10 @@ Route::get('/servicio', function () {
     return view('servicio');
 });
 
+Route::get('/galeria', function () {
+    return view('galeria');
+});
+
 Route::get('/contacto', function () {
     return view('contacto');
 });

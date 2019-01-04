@@ -44,18 +44,21 @@ b, h1, h2, h3{
 /*------------- Header -------------*/
 .navbar-brand{
 	height: auto;
-	padding: 5px 15px;
+	padding: 0px 0 0 15px;
 }
 .nav.navbar-nav{
-	margin: 20px 0px;
+	margin: 40px 0px 0px;
 }
 .logo{
 	height: 80px;
 }
 
 /*------------- Body -------------*/
+.row{
+	margin: 0;
+}
 section .container-fluid{
-	padding: 30px 20px;
+	padding: 22px 20px;
 }
 section .container-fluid h1{
 	font-size: 54px;
@@ -78,19 +81,23 @@ section .container-fluid h3{
 	color: #fff;
 }
 .cont-light-blue{
-	background-color: #0d9cda;
+	/*background-color: #0d9cda;*/
+	background-color: #337ab7;
 }
 section .jumbotron{
 	margin: 0px;
 }
 .icons{
 	font-size: 4.7em;
-	height: 332px;
+	height: 270px;
 }
 .register.register.register{
+	height: 190px;
 	padding: 30px 15px 30px 30px;
-	color: #fff;
-	background: #086891;
+	/*color: #fff;
+	background: #086891;*/
+	background: #f1f1f1;
+	color: #110f0f;
 	background-size: cover;
 }
 
@@ -104,7 +111,7 @@ section .jumbotron{
 }
 .owl-cars.owl-carousel .owl-item .item{
 	padding: 0px;
-	height: 100%;
+	/*height: 100%;*/
 	background-size: cover;
 }
 .owl-cars.owl-carousel .owl-item .test{
@@ -138,14 +145,14 @@ section .jumbotron{
 .owl-theme .owl-dots{
 	display: none;
 }
-.cont-1.cont-1{
+/*.cont-1.cont-1{
 	padding: 60px;
 }
 .ext>h2{
 	margin-bottom: 40px;
-}
+}*/
 .cont-2.cont-2{
-	padding: 20px 0px 0px;
+	padding: 0px;
 }
 .cont-3.cont-3{
 	padding: 0px;
@@ -180,6 +187,16 @@ section .jumbotron{
 	background-size: cover;
 	height: 250px;
 }
+.container-fluid.banner-gale{
+	padding: 80px 50px;
+	background: linear-gradient(
+		rgba(0, 0, 0, 0.7), 
+		rgba(0, 0, 0, 0.7)
+	),
+	url(../img/serv1.png) center;
+	background-size: cover;
+	height: 250px;
+}
 .jumbotron.services{
 	padding: 30px;
 	height: 380px;
@@ -191,10 +208,12 @@ section .jumbotron{
 footer .container-fluid{
 	background-color: #0d9cda;
 	overflow: auto;
+	padding-top: 20px;
 }
 footer .container-fluid .row{
 	padding: 20px;
 	color: #fff;
+	text-align: center;
 }
 footer .container-fluid .row a{
 	color: #fff;
@@ -212,15 +231,17 @@ footer .container-fluid .row a{
 }
 .footer-copyright{
 	background-color: #000;
+	margin-right: -15px;
+	margin-left: -15px;
 }
 
 .social-item{
-	width: 33%;
+	width: 20%;
 	height: 40px;
-	color: #fff;
+	color: #2a2424;
 	text-align: center;
-	font-size: 1.7em;
-	float: left;
+	font-size: 1.2em;
+	float: right;
 }
 .social-item i{
 	line-height: 1.6em
@@ -250,7 +271,7 @@ footer .container-fluid .row a{
 	float: right;
 }
 #container{
-	margin-top: 50px;
+	/*margin-top: -20px;*/
 	width: auto;
 	padding-right: 0;
 	padding-left: 0;
@@ -283,10 +304,11 @@ footer .container-fluid .row a{
 
 .cont-box3{
 	height: 460px;
+	padding: 0;
 }
 
 #iconValores{
-	margin: 50px;
+	margin: 15px 20px 33px;
 }
 
 #contactForm{
@@ -296,8 +318,56 @@ footer .container-fluid .row a{
 	font-size: 15px;
 }
 .iconValores{
-	margin: 20px;
+	padding: 20px;
 }
 .owl-carousel .owl-stage-outer{
 	overflow: inherit;
+	/*min-height: 550px;*/
+	max-height: 650px;
+	overflow: hidden;
+	position: relative;
+	background-repeat: no-repeat !important;
+	background-position: top center !important;
+	background-size: cover !important;
+}
+.margin-register{
+	margin-bottom: 15px;
+}
+.btn-registro{
+	color: #eee !important;
+	background-color: #0d9cda !important;
+	border-color: #086891 !important;
+}
+.sec-icon{
+	margin-top: 10px;
+}
+.icon{
+	height: 40px;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus{
+	background-color: #e7e7e7;
+}
+
+/*.navbar-custom{
+	margin-top: -20px;
+}*/
+.footer-brand{
+	height: 160px;
+}
+p{
+	font-size: 16px;
+}
+.navbar-ex1-collapse{
+	float: right;
+}
+
+.navbar{
+	margin-bottom: 0;
+}
+.form-register{
+	margin-top: 20px;
+}
+.ext img{
+	width: 100%;
 }
