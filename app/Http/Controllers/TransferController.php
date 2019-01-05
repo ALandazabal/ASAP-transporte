@@ -199,7 +199,12 @@ class TransferController extends Controller
         }
 
         /*Mail::to($request->get('email'))->send(new Transfer($request->get('name')));*/
-        Mail::to($request->get('email'))->send(new TransferMail());
+        //Mail::to($request->get('email'))->send(new TransferMail());
+
+        Mail::send('mails.demo', $request->all(), function($msj){
+            $msj->subject('Correo de prueba');
+            $msj->to('angelica.informatik@gmail.com');
+        });
 
         //\Mail::to('angelica.informatik@gmail.com')->send(new TransferMail($request->get('email')));
 
