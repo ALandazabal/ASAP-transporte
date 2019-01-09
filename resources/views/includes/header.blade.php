@@ -1,42 +1,31 @@
-{{-- <nav class="navbar navbar-default navbar-fixed-top" role="navigation"> --}}
-<nav class="navbar navbar-default navbar-custom" role="navigation">
-	<div class="row sec-icon">
-		<div class="col-md-12">
-			<a href="https://www.instagram.com/asaptransporte/">
-				<div class="social-item">
-					{{-- <i class="fab fa-instagram"></i> --}}
-					<img class="icon" alt="Brand" src="{{{ asset('img/redes/instag.png') }}}"> @asaptransporte
-				</div>
-			</a>
-			<a href="#">
-				<div class="social-item">
-					{{-- <i class="fab fa-twitter"></i> --}}
-					<img class="icon" alt="Brand" src="{{{ asset('img/redes/twitter.png') }}}">
-				</div>
-			</a>
-			<a href="https://www.facebook.com/transferASAP/">
-				<div class="social-item">
-					{{-- <i class="fab fa-facebook-f"></i> --}}
-					<img class="icon" alt="Brand" src="{{{ asset('img/redes/face.png') }}}"> @transferASAP
-				</div>
-			</a>
-			<a href="https://api.whatsapp.com/send?phone=56228668950&text=Hola!%20Quiero%20solicitar%20el%20servicio%20de%20transfer/tour!">
-				<div class="social-item">
-					{{-- <i class="fab fa-facebook-f"></i> --}}
-					<img class="icon" alt="Brand" src="{{{ asset('img/redes/wp.png') }}}"> +56 2 2866 8950
-				</div>
-			</a>
-		</div>
-	</div>
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top" role="navigation">
 	<div class="row">
 		<div class="col-md-3 navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+			{{-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
 				<span class="sr-only">Desplegar navegación</span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 	 			<span class="icon-bar"></span>
-			</button>
+			</button> --}}
 			<a class="navbar-brand" href="{{ route('index') }}"><img class="logo" alt="Brand" src="{{{ asset('img/logo.png') }}}"></a>
+		</div>
+		<div class="col-md-2 content-icons">
+			<div class="row">
+				<a href="https://api.whatsapp.com/send?phone=56228668950&text=Hola!%20Quiero%20solicitar%20el%20servicio%20de%20transfer/tour!">
+						<i class="fab fa-whatsapp"></i> +56 2 2866 8950
+				</a>
+			</div>
+			<div class="row redes">
+				<a id="instagram" href="https://www.instagram.com/asaptransporte/">
+					<i class="fab fa-instagram"></i>
+				</a>
+				<a href="#">
+					<i class="fab fa-twitter"></i>
+				</a>
+				<a id="facebook" href="https://www.facebook.com/transferASAP/">
+					<i class="fab fa-facebook-f"></i>
+				</a>
+			</div>
 		</div>
 		<div class="col-md-5 collapse navbar-collapse navbar-ex1-collapse">
 			<ul class="nav navbar-nav navbar-right">

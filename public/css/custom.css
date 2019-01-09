@@ -44,7 +44,7 @@ b, h1, h2, h3{
 /*------------- Header -------------*/
 .navbar-brand{
 	height: auto;
-	padding: 0px 0 0 15px;
+	padding: 10px 0 0 15px;
 }
 .nav.navbar-nav{
 	margin: 40px 0px 0px;
@@ -73,7 +73,8 @@ section .container-fluid h3{
 	background-color: #f1f1f1;
 }
 .cont-dark-grey{
-	background-color: #616161;
+	/*background-color: #616161;*/
+	background-color: rgba(97,97,97,0.8);
 	color: #fff;
 }
 .cont-dark-blue{
@@ -271,7 +272,7 @@ footer .container-fluid .row a{
 	float: right;
 }
 #container{
-	/*margin-top: -20px;*/
+	margin-top: 90px;
 	width: auto;
 	padding-right: 0;
 	padding-left: 0;
@@ -320,6 +321,9 @@ footer .container-fluid .row a{
 .iconValores{
 	padding: 20px;
 }
+/*.iconValores div:hover{
+	color: #0d9cda;
+}*/
 .owl-carousel .owl-stage-outer{
 	overflow: inherit;
 	/*min-height: 550px;*/
@@ -370,4 +374,88 @@ p{
 }
 .ext img{
 	width: 100%;
+}
+
+.content-icons{
+	font-size: 19px;
+	text-align: center;
+	padding-top: 12px;
+}
+.content-icons a{
+	color: #333;
+}
+.content-icons a:hover{
+	text-decoration: none;
+	color: #0098da;
+}
+.redes{
+	padding: 6px;
+	font-size: 25px;
+}
+#facebook{
+	float: left;
+}
+#instagram{
+	float: right;
+}
+
+.jumbotron{
+	font-family: 'Khand',sans-serif;
+}
+.jumboserv{
+	background-color: transparent;
+}
+.jumbotron.services .fas{
+	font-size: 70px;
+}
+.content-jumbotron{
+	border: 1px solid;
+}
+.jumbotron h4{
+	text-transform: uppercase;
+}
+.jumbotron.services::before{
+	content: "";
+	display: block;
+	background: #222;
+	transition: .5s cubic-bezier(.77,0,.175,1);
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 0%;
+	z-index: -1;
+}
+.jumbotron.services:hover::before{
+	width: 100%;
+}
+.jumbotron.services:hover{
+	color: white;
+}
+.jumbotron.services i{
+	transition: .5s cubic-bezier(.77,0,.175,1);
+}
+.cont-ico{
+	height: 150px;
+}
+.cont-ico::before{
+	content: "";
+	display: block;
+	background: #111;
+	transition: .5s cubic-bezier(.77,0,.175,1);
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 0%;
+	z-index: -1;
+}
+.cont-ico:hover::before{
+	width: 100%;
+}
+.cont-ico:hover{
+	color: #0d9cda;
+}
+.conico{
+	padding: 0;
 }

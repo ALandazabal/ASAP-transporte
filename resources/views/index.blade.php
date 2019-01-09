@@ -44,24 +44,44 @@
 </div>
 <div class="container-fluid text-center cont-3 ext">
 	<div class="col-md-6 text-center cont-box3">
-		<div class="row iconValores cont-dark-grey icons">
+		{{--<div class="container-fluid cont-1 text-center ext">--}}
+		<div class="row iconValores cont-dark-grey icons"> 
 			<h3 id="iconValores">Nuestros valores</h3>
-			<div class="col-md-3">
-				<i class="fas fa-car-side"></i>
-				<h4>Discresion</h4>
-			</div>
-			<div class="col-md-3">
-				<i class="fas fa-truck-pickup"></i>
-				<h4>Comodidad</h4>
-			</div>
-			<div class="col-md-3">
-				<i class="fas fa-helicopter"></i>
-				<h4>Puntualidad</h4>
-			</div>
-			<div class="col-md-3">
-				<i class="fas fa-shuttle-van"></i>
-				<h4>Atencion 24/7</h4>
-			</div>
+			<div class="col-md-3 ">
+		        <div class="col-md-12 conico">
+		    		<div class="cont-ico">
+		    			<i class="fas fa-car-side"></i>
+						<h4>Discresion</h4>
+		        	</div>
+		        </div>
+		    </div>
+
+		    <div class="col-md-3 ">
+		        <div class="col-md-12 conico">
+		    		<div class="cont-ico">
+		    			<i class="fas fa-truck-pickup"></i>
+						<h4>Comodidad</h4>
+		        	</div>
+		        </div>
+		    </div>
+
+		    <div class="col-md-3 ">
+		        <div class="col-md-12 conico">            
+		            <div class="cont-ico">
+		                <i class="fas fa-helicopter"></i>
+						<h4>Puntualidad</h4>
+		            </div>
+		        </div>
+		    </div>
+
+		    <div class="col-md-3 ">
+		        <div class="col-md-12 conico">
+		    		<div class="cont-ico">
+		    			<i class="fas fa-shuttle-van"></i>
+						<h4>Atencion 24/7</h4>
+		        	</div>
+		        </div>
+		    </div>
 		</div>
 
 		<div class="container-fluid ext register">

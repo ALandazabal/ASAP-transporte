@@ -32,7 +32,7 @@ class SliderController extends Controller
         $slider = new Slide();
         $slider->title = $request->get('title');
         $slider->description = $request->get('description');
-        if( isset($name) )
+        //if( isset($name) )
             $slider->photo = $name ;
         $slider->slider = 1;
         $slider->save();
