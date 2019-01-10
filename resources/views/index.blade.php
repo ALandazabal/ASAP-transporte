@@ -140,7 +140,7 @@
 				<div class="form-group">
 					<select class="form-control" name="comuna" id="comuna">
 						<option>Punto de Origen</option>
-						<option value="0">Aeropuerto Internacional Comodoro Arturo Medino Benítez</option>
+						{{-- <option value="0">Aeropuerto Internacional Comodoro Arturo Medino Benítez</option> --}}
 						@foreach( $comunas as $comuna)
 						<option value="{{ $comuna->id }}">{{ $comuna->name }}</option>
 						@endforeach

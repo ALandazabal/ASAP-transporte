@@ -3,9 +3,9 @@
 		<div class="row">
 			<div class="col-md-4 foot-box">
 				<h3 class="title">CONTACTO</h3>
-				<p>Dirección: <a href="https://goo.gl/maps/7Getp1qfc3S2">Leonardo Da vinci 7500, Las Condes, Región Metropolitana.</a></p>
+				<p>Dirección: <a href="https://goo.gl/maps/837aZ7UjTiE2">Eliodoro Yáñez 2876, Oficina 401. Providencia.</a></p>
 				<p>Teléfono: <a href="tel:+56228668950">+56 2 2866 8950</a></p>
-				<p>E-Mail: <a href="mailto:ejecutivodecuenta2@ortsas.com">info@asap.cl</a></p>
+				<p>E-Mail: <a href="mailto:info@transportesasap.cl">info@transportesasap.cl</a></p>
 			</div>
 			<div class="col-md-4 foot-box">
 				<a class="" href="{{ route('index') }}"><img class="footer-brand" alt="Brand" src="{{{ asset('img/logo-hor.png') }}}"></a>

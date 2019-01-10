@@ -59,9 +59,10 @@
 						<div class="row">
 							<div class="col-xs-12">
 								<div class="form-group">
-									<label for="Origin2t">Transfer desde:</label>
-									<select class="form-control" name="origin2t" id="origin2t">
-									<option value="0">Aeropuerto Internacional Comodoro Arturo Medino Benítez</option>
+									<label for="Origin2">Origen:</label>
+									<select class="form-control" name="origin2" id="origin2">
+										<option selected="selected">Seleccione un origen</option>
+									{{-- <option value="0">Aeropuerto Internacional Comodoro Arturo Medino Benítez</option> --}}
 									@foreach( $comunas as $comuna)
 										<option value="{{ $comuna->id }}">{{ $comuna->name }}</option>
 										@endforeach
@@ -73,8 +74,9 @@
 						<div class="row">
 							<div class="col-xs-12">
 								<div class="form-group">
-									<label for="Comunat">Transfer hasta:</label>
+									<label for="Comunat">Destino:</label>
 									<select class="form-control" name="comunat" id="comunat">
+										<option>Seleccione primero un origen</option>
 										{{-- @foreach( $comunas as $comuna)
 										<option value="{{ $comuna->id }}">{{ $comuna->name }}</option>
 										@endforeach --}}

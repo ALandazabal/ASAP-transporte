@@ -79,9 +79,10 @@ Route::get('email', function(){
     return new Transfer($user);
 });
 
-Route::get('/transfer/pagar', function () {
-    return view('info');
+Route::post('/pagar', function () {
+    return view('transfer/accept');
 });
+/*Route::post('/pagar', 'HomeController@contizacionForm')->name('contizacionForm');*/
 
 Route::resource('precios', 'PrecioController');
 

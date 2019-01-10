@@ -114,9 +114,13 @@ class TransferController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate(['vehicle' => 'required', 'comuna' => 'required', 'tviaje' => 'required', 'name' => 'required', 'email' => 'required|email', 'date' => 'required|date', 'time' => 'required']);
+        $request->validate(['vehicle' => 'required', 'origin' => 'required', 'comuna' => 'required', 'tviaje' => 'required', 'name' => 'required', 'email' => 'required|email', 'date' => 'required|date', 'time' => 'required']);
 
-        $comuna = $request->input('comuna');
+        if($request->input('origin') != 0 ){
+            $comuna = $request->input('origin');
+        }else{
+            $comuna = $request->input('comuna'); 
+        }
         $tviaje = $request->input('tviaje');
 
         
@@ -192,7 +196,8 @@ class TransferController extends Controller
             $webpay->addTransactionDetail($total, $transfer->id); // Monto e identificador de la orden
 
             // Debes además, registrar las URLs a las cuales volverá el cliente durante y después del flujo de Webpay
-            $response = $webpay->initTransaction('http://asap.entunegocio.cl/transfer/pagar', 'http://asap.entunegocio.cl/transfer/result');
+            /*$response = $webpay->initTransaction('http://asap.entunegocio.cl/transfer/pagar', 'http://asap.entunegocio.cl/transfer/result');*/
+            $response = $webpay->initTransaction('http://localhost:8000/pagar', 'http://asap.entunegocio.cl/transfer/result');
 
             // Utilidad para generar formulario y realizar redirección POST
             echo RedirectorHelper::redirectHTML($response->url, $response->token);
@@ -309,17 +314,21 @@ class TransferController extends Controller
             }else{
                 $request->validate(['vehicle' => 'required', 'comunat' => 'required']);
                 $form_data = $request->all();
-                if($form_data['origin2t'] == 0){
+                if($form_data['origin2'] == 0){
+                    $origen = Comuna::find(0);
+                    $destino = Comuna::find($form_data['comunat']);
                     $comu = Comuna::find($form_data['comunat']);
                 }else{
-                    $comu = Comuna::find($form_data['origin2t']);
+                    $origen = Comuna::find($form_data['origin2']);
+                    $destino = Comuna::find(0);
+                    $comu = Comuna::find($form_data['origin2']);
                 }
                 $tviaj = Tviaje::find($form_data['tviajet']);
                 $veh = Vehicle::find($form_data['vehicle']);
                 $servs = Servicio::all();
                 $preciod = DB::table('precios')->where([['comuna_id', $comu->id],['tviaje_id', $tviaj->id],])->first();
 
-                return view('transfer.contact', compact('form_data', 'comu', 'tviaj', 'veh', 'preciod', 'servs'));
+                return view('transfer.contact', compact('form_data', 'origen', 'destino', 'tviaj', 'veh', 'preciod', 'servs'));
                 /*return view('transfer.contact')->with('form_data', $request->all());*/
             }
         }else{

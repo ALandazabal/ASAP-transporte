@@ -62,8 +62,8 @@ return [
         'name' => env('MAIL_FROM_NAME', 'ASAP'),
     ],*/
     'from' => [
-        'address' => 'angelica.informatik@gmail.com',
-        'name' => 'ASAP pruebas',
+        'address' => 'transfers.asap@gmail.com',
+        'name' => 'ASAP transportes',
     ],
 
     /*

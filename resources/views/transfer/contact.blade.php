@@ -53,26 +53,31 @@
 							</div>
 							<div class="col-xs-6">
 								<div class="form-group">
-									<label for="email">Fecha y hora: </label><label class="dataTransfer">{{ $form_data['date'] }}  {{ $form_data['time'] }}</label>
+									<label for="email">Fecha y hora: </label><label class="dataTransfer"><?php echo date("d/m/Y", strtotime($form_data['date']))?>  {{ $form_data['time'] }}</label>
 								</div>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-xs-6">
 								<div class="form-group">
-									<label for="name">Transfer Desde/Hacia: </label><label class="dataTransfer">{{ $form_data['origin'] }}</label>
+									<label for="name">Desde: </label><label class="dataTransfer">{{ $origen->name }}</label>
 								</div>
 							</div>
 							<div class="col-xs-6">
 								<div class="form-group">
-									<label for="email">Comuna: </label><label class="dataTransfer">{{ $comu->name }}</label>
+									<label for="email">Hasta: </label><label class="dataTransfer">{{ $destino->name }}</label>
 								</div>
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-xs-12">
+							<div class="col-xs-6">
 								<div class="form-group">
 									<label for="name">Vehiculo: </label><label class="dataTransfer">{{ $veh->description}}</label>
+								</div>
+							</div>
+							<div class="col-xs-6">
+								<div class="form-group">
+									<label for="name">Descripción: </label><label class="dataTransfer">{{ $preciod->descripcion }}</label>
 								</div>
 							</div>
 						</div>
@@ -89,12 +94,7 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-xs-6">
-								<div class="form-group">
-									<label for="name">Descripción: </label><label class="dataTransfer">{{ $preciod->descripcion }}</label>
-								</div>
-							</div>
-							<div class="col-xs-6">
+							<div class="col-xs-6 col-xs-push-6">
 								<div class="form-group">
 									<label for="email">Precio: </label><label class="dataTransfer">{{ $preciod->precio }}</label>
 								</div>
@@ -178,9 +178,9 @@
 						{{-- Valores traidos del otro fomulario--}}
 						<input type="hidden" name="name" value="{{ $form_data['name'] }}">
 						<input type="hidden" name="email" value="{{ $form_data['email'] }}">
-						<input type="hidden" name="origin" value="{{ $form_data['origin'] }}">
-						<input type="hidden" name="comuna" value="{{ $form_data['comuna'] }}">
-						<input type="hidden" name="tviaje" value="{{ $form_data['tviaje'] }}">
+						<input type="hidden" name="origin" value="{{ $form_data['origin2'] }}">
+						<input type="hidden" name="comuna" value="{{ $form_data['comunat'] }}">
+						<input type="hidden" name="tviaje" value="{{ $form_data['tviajet'] }}">
 						<input type="hidden" name="date" value="{{ $form_data['date'] }}">
 						<input type="hidden" name="time" value="{{ $form_data['time'] }}">
 						<input type="hidden" name="vehicle" value="{{ $form_data['vehicle'] }}">
@@ -201,6 +201,7 @@
 
 						<div class="row buttonSend">
 							<div class="col-xs-12">
+								<a href="{{ route('transfer.create') }}" class="btn btn-info" >Atrás</a>
 								<button class="btn btn-success" type="submit">Solicitar</button>
 							</div>	
 						</div>

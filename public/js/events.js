@@ -37,7 +37,7 @@ $("#tviaje").change(function(event){
 });
 
 //Transfers create
-$("#origin2t").change(function(event){
+$("#origin2").change(function(event){
 	$("#comunat").empty();
 	if(event.target.value != 0){
 		$("#comunat").append("<option value='0'>Aeropuerto Internacional Comodoro Arturo Medino Benítez</option>");
@@ -56,7 +56,7 @@ $("#origin2t").change(function(event){
 
 $("#tviajet").change(function(event){
 	$("#comunat").empty();
-	if($("#origin2t").val() != 0){
+	if($("#origin2").val() != 0){
 		$("#comunat").append("<option value='0'>Aeropuerto Internacional Comodoro Arturo Medino Benítez</option>");
 	}else{
 
