@@ -307,10 +307,14 @@ class TransferController extends Controller
                 $array = $request->session()->pull('transfer_form');
                 return view('transfer.contact')->with('form_data', $array);
             }else{
-                $request->validate(['vehicle' => 'required', 'comuna' => 'required']);
+                $request->validate(['vehicle' => 'required', 'comunat' => 'required']);
                 $form_data = $request->all();
-                $comu = Comuna::find($form_data['comuna']);
-                $tviaj = Tviaje::find($form_data['tviaje']);
+                if($form_data['origin2t'] == 0){
+                    $comu = Comuna::find($form_data['comunat']);
+                }else{
+                    $comu = Comuna::find($form_data['origin2t']);
+                }
+                $tviaj = Tviaje::find($form_data['tviajet']);
                 $veh = Vehicle::find($form_data['vehicle']);
                 $servs = Servicio::all();
                 $preciod = DB::table('precios')->where([['comuna_id', $comu->id],['tviaje_id', $tviaj->id],])->first();
@@ -377,5 +381,13 @@ class TransferController extends Controller
         $state->save();
 
         return redirect()->route('transfer.indexu')->with('success', 'Se actualizó los datos del Transfer.');
+    }
+    public function getComunas(Request $request, $id){
+        if($request->ajax()){
+            $precio = Precio::servicioSelect($id);
+            //$aux = $precio->comuna_id;
+            $comunas = Comuna::whereIn('id', $precio)->get();
+            return response()->json($comunas);
+        }
     }
 }

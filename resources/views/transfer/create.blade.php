@@ -47,19 +47,8 @@
 						<div class="row">
 							<div class="col-xs-12">
 								<div class="form-group">
-									<label for="Origin2">Transfer Desde/Hacia:</label>
-									<select class="form-control" name="origin2" disabled>
-									<option>Aeropuerto Internacional Comodoro Arturo Medino Benítez</option>
-									</select>
-									<input type="hidden" class="form-control input-sm" name="origin" value="Aeropuerto Internacional Comodoro Arturo Medino Benítez" required>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-12">
-								<div class="form-group">
-									<label for="tviaje">Tipo de servicio:</label>
-									<select class="form-control" name="tviaje">
+									<label for="Tviajet">Tipo de servicio:</label>
+									<select class="form-control" name="tviajet" id="tviajet">
 										@foreach( $tposviaje as $tviaje)
 										<option value="{{ $tviaje->id }}">{{ $tviaje->descripcion }}</option>
 										@endforeach
@@ -70,11 +59,25 @@
 						<div class="row">
 							<div class="col-xs-12">
 								<div class="form-group">
-									<label for="Comuna">Comuna:</label>
-									<select class="form-control" name="comuna">
-										@foreach( $comunas as $comuna)
+									<label for="Origin2t">Transfer desde:</label>
+									<select class="form-control" name="origin2t" id="origin2t">
+									<option value="0">Aeropuerto Internacional Comodoro Arturo Medino Benítez</option>
+									@foreach( $comunas as $comuna)
 										<option value="{{ $comuna->id }}">{{ $comuna->name }}</option>
 										@endforeach
+									</select>
+									<input type="hidden" class="form-control input-sm" name="origin" value="Aeropuerto Internacional Comodoro Arturo Medino Benítez" required>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								<div class="form-group">
+									<label for="Comunat">Transfer hasta:</label>
+									<select class="form-control" name="comunat" id="comunat">
+										{{-- @foreach( $comunas as $comuna)
+										<option value="{{ $comuna->id }}">{{ $comuna->name }}</option>
+										@endforeach --}}
 									</select>
 								</div>
 							</div>

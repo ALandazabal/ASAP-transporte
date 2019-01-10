@@ -41,13 +41,24 @@ class HomeController extends Controller
         $tposviaje = Tviaje::all();
         $servicio = DB::table('servicios')->where('id', 3)->first();
 
-        $preciod = DB::table('precios')->where([['comuna_id', $request->input('comuna')],['tviaje_id', $request->input('tviaje')],])->first();
+        if($request->input('comuna') == 0){
+            $preciod = DB::table('precios')->where([['comuna_id', $request->input('origin2')],['tviaje_id', $request->input('tviaje')],])->first();
+        }else{
+            $preciod = DB::table('precios')->where([['comuna_id', $request->input('comuna')],['tviaje_id', $request->input('tviaje')],])->first();
+        }
 
         $search = DB::table('tviajes')->where('id', $request->input('tviaje'))->first();
         $sviaje = $search->descripcion;
 
-        $search = DB::table('comunas')->where('id', $request->input('comuna'))->first();
-        $scomu = $search->name;
+        if($request->input('comuna') == 0){
+            $search = DB::table('comunas')->where('id', $request->input('origin2'))->first();
+            $desde = "Aeropuerto Internacional Comodoro Arturo Medino Benítez";
+            $hasta = $search->name;
+        }else{
+            $search = DB::table('comunas')->where('id', $request->input('comuna'))->first();
+            $hasta = "Aeropuerto Internacional Comodoro Arturo Medino Benítez";
+            $desde = $search->name;
+        }
 
         $paxtra = $servicio->price;
 
@@ -62,6 +73,15 @@ class HomeController extends Controller
         }
         
         /*return view('index')->with('slider', $slider);*/
-        return view('index', compact('slider','vehicles','comunas', 'tposviaje', 'success', 'sviaje', 'scomu', 'paxtra'));
+        return view('index', compact('slider','vehicles','comunas', 'tposviaje', 'success', 'sviaje', 'desde','hasta', 'paxtra'));
+    }
+
+    public function getComunas(Request $request, $id){
+        if($request->ajax()){
+            $precio = Precio::servicioSelect($id);
+            //$aux = $precio->comuna_id;
+            $comunas = Comuna::whereIn('id', $precio)->get();
+            return response()->json($comunas);
+        }
     }
 }

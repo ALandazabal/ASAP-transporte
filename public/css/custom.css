@@ -389,8 +389,8 @@ p{
 	color: #0098da;
 }
 .redes{
-	padding: 6px;
-	font-size: 25px;
+	padding: 0px 30px;
+	font-size: 30px;
 }
 #facebook{
 	float: left;
@@ -458,4 +458,7 @@ p{
 }
 .conico{
 	padding: 0;
+}
+.fa-whatsapp{
+	font-size: 30px;
 }

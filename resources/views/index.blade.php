@@ -116,7 +116,7 @@
 						        <h3 class="modal-title">Cotización realizada</h3>
 						      </div>
 						      <div class="modal-body">
-						      	<p>La cotización para el tipo de viaje: <?php echo '<label>'.$sviaje.'</label>'; ?> y hacia/desde la comuna: <?php echo '<label>'.$scomu.'</label>'; ?>, tiene un valor de <?php echo '<label>'.$success.'</label>'; ?>
+						      	<p>La cotización para el tipo de viaje: <?php echo '<label>'.$sviaje.'</label>'; ?> desde: <?php echo '<label>'.$desde.'</label>'; ?> hasta: <?php echo '<label>'.$hasta.'</label>'; ?>, tiene un valor de <?php echo '<label>'.$success.'</label>'; ?>
 						      	</p>
 						      	</br>
 						      	<p>Le recordamos que por cada pasajero extra (superior a 4), se le realizará una recarga de <?php echo '<label>'.$paxtra.'</label>'; ?></p>
@@ -130,12 +130,7 @@
 				<?php	}
 				?>
 				<div class="form-group">
-					<select class="form-control" name="origin2" disabled>
-						<option>Aeropuerto Internacional Comodoro Arturo Medino Benítez</option>
-					</select>
-				</div>
-				<div class="form-group">
-					<select class="form-control" name="tviaje">
+					<select class="form-control" name="tviaje" id="tviaje">
 						<option value="null">Tipo de servicio</option>
 						@foreach( $tposviaje as $tviaje)
 						<option value="{{ $tviaje->id }}">{{ $tviaje->descripcion }}</option>
@@ -143,11 +138,21 @@
 					</select>
 				</div>
 				<div class="form-group">
-					<select class="form-control" name="comuna">
-						<option value="null">Punto de Origen/Destino</option>
+					<select class="form-control" name="comuna" id="comuna">
+						<option>Punto de Origen</option>
+						<option value="0">Aeropuerto Internacional Comodoro Arturo Medino Benítez</option>
 						@foreach( $comunas as $comuna)
 						<option value="{{ $comuna->id }}">{{ $comuna->name }}</option>
 						@endforeach
+					</select>
+				</div>
+				<div class="form-group">
+					<select class="form-control" name="origin2" id="origin2">
+						<option value="null">Punto de Destino</option>
+						{{-- <option>Aeropuerto Internacional Comodoro Arturo Medino Benítez</option>
+						@foreach( $comunas as $comuna)
+						<option value="{{ $comuna->id }}">{{ $comuna->name }}</option>
+						@endforeach --}}
 					</select>
 				</div>
 				<div class="form-group">

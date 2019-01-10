@@ -84,3 +84,6 @@ Route::get('/transfer/pagar', function () {
 });
 
 Route::resource('precios', 'PrecioController');
+
+Route::get('comunas/{id}','HomeController@getComunas');
+Route::get('/transfer-comuna/{id}','TransferController@getComunas');

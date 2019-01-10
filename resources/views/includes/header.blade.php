@@ -9,7 +9,7 @@
 			</button> --}}
 			<a class="navbar-brand" href="{{ route('index') }}"><img class="logo" alt="Brand" src="{{{ asset('img/logo.png') }}}"></a>
 		</div>
-		<div class="col-md-2 content-icons">
+		<div class="col-md-3 content-icons">
 			<div class="row">
 				<a href="https://api.whatsapp.com/send?phone=56228668950&text=Hola!%20Quiero%20solicitar%20el%20servicio%20de%20transfer/tour!">
 						<i class="fab fa-whatsapp"></i> +56 2 2866 8950
