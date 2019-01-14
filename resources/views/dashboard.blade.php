@@ -29,17 +29,17 @@
                             <div class="col-md-4">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h5 class="panel-title">Administrar Comunas</h5>
+                                        <h5 class="panel-title">Administrar Lugares</h5>
                                     </div>
                                     <div class="panel-body">
-                                        Añade, modifica, elimina comunas.<br>
+                                        Añade, modifica, elimina comunas o los lugares turísticos.<br>
                                         <center>
                                         <a href="{{ route('comuna.index') }}" class="btn btn-default">Ir!</a>
                                         </center>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            {{-- <div class="col-md-4">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <h5 class="panel-title">Administrar Vehículos</h5>
@@ -51,7 +51,7 @@
                                         </center>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="col-md-4">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
@@ -100,6 +100,19 @@
                                         Añade, modifica, elimina los servicios adicionales ofertados.<br>
                                         <center>
                                         <a href="{{ route('service.index') }}" class="btn btn-default">Ir!</a>
+                                        </center>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h5 class="panel-title">Administrar Pasajeros</h5>
+                                    </div>
+                                    <div class="panel-body">
+                                        Añade, modifica, elimina los precios por pasajero en traslados.<br>
+                                        <center>
+                                        <a href="{{ route('passenger.index') }}" class="btn btn-default">Ir!</a>
                                         </center>
                                     </div>
                                 </div>

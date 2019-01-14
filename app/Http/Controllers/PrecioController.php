@@ -44,7 +44,7 @@ class PrecioController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate(['comuna' => 'required', 'precio' => 'required', 'description' => 'required', 'tposviajei' => 'required']);
+        $request->validate(['comuna' => 'required', 'precio' => 'required', 'tposviajei' => 'required']);
 
         $temp2 = new Precio();
         $temp2->comuna()->associate($request->get('comuna'));

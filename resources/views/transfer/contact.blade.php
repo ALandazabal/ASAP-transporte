@@ -70,21 +70,14 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-xs-6">
+							{{-- <div class="col-xs-6">
 								<div class="form-group">
 									<label for="name">Vehiculo: </label><label class="dataTransfer">{{ $veh->description}}</label>
 								</div>
-							</div>
+							</div> --}}
 							<div class="col-xs-6">
 								<div class="form-group">
 									<label for="name">Descripción: </label><label class="dataTransfer">{{ $preciod->descripcion }}</label>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-6">
-								<div class="form-group">
-									<label for="passenger">Cantidad de pasajeros: </label><label class="dataTransfer">{{ $form_data['passenger'] }}</label>
 								</div>
 							</div>
 							<div class="col-xs-6">
@@ -97,6 +90,19 @@
 							<div class="col-xs-6 col-xs-push-6">
 								<div class="form-group">
 									<label for="email">Precio: </label><label class="dataTransfer">{{ $preciod->precio }}</label>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-6">
+								<div class="form-group">
+									<label for="passenger">Cantidad de pasajeros: </label><label class="dataTransfer">{{ $form_data['passenger'] }}</label>
+								</div>
+							</div>
+							<div class="col-xs-6">
+								<div class="form-group">
+									<label for="email">Precio: </label><label class="dataTransfer">{{ $cuotaPax }}</label>
+									<?php $totalpass = $cuotaPax; ?>
 								</div>
 							</div>
 						</div>
@@ -121,37 +127,12 @@
 						@endif
 					@endforeach
 				@endif
-				@if($form_data['passenger'] > 4)
-					@foreach( $servs as $serv)
-						@if($serv->id == 3)
-						<div class="row">
-							<div class="col-xs-6">
-								<div class="form-group">
-									<label for="name">Servicio: </label><label class="dataTransfer">{{ $serv->descripcion }}</label>
-								</div>
-							</div>
-							<div class="col-xs-6">
-								<div class="form-group">
-									<label for="email">Precio: </label><label class="dataTransfer">
-										<?php 
-											$pax = $form_data['passenger'] - 4;
-											$totalpax = $serv->price * $pax; 
-											echo $totalpax;
-										?>											
-									</label>
-								</div>
-							</div>
-						</div>
-						@endif
-					@endforeach
-				@endif
-
 						<div class="row">
 							<div class="col-xs-6 col-xs-offset-6">
 								<div class="form-group">
 									<label for="email">Total: </label><label class="dataTransfer">
 										<?php 
-											$total = $preciod->precio + $totalpax + $totalg;
+											$total = $preciod->precio + $totalg + $totalpass;
 											echo $total;
 										?>											
 									</label>

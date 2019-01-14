@@ -87,9 +87,11 @@ class TransferController extends Controller
     public function create(Request $request)
     {
         if( Auth::check() ){
-            $vehicles = Vehicle::all();
+            /*$vehicles = Vehicle::all();*/
+            $vehicles = Vehicle::where('id', 1)->first();
             $comunas = Comuna::all();
             $tposviaje = Tviaje::all();
+            $passengers = Passenger::all();
 
             $form_data = null;
 
@@ -97,7 +99,7 @@ class TransferController extends Controller
                 $form_data = $request->session()->pull('transfer_form');
             }
 
-            return view('transfer.create', compact('form_data', 'vehicles','comunas', 'tposviaje'));
+            return view('transfer.create', compact('form_data', 'vehicles','comunas', 'tposviaje', 'passengers'));
         }else{
             //$request->validate(['vehicle' => 'required', 'comuna' => 'required']);
             $request->session()->put('transfer_form', $request->all());
@@ -127,12 +129,23 @@ class TransferController extends Controller
 
         $servicio = DB::table('servicios')->where('id', 3)->first();
 
+        $temppax = DB::table('passengers')->where('id', $request->input('passenger'))->first();
+        $pax = explode(" ", $temppax->descripcion);
+
         $cuotaPax = 0;
-        if($request->input('passenger') > 4){
-            $cuotaPax = ($request->input('passenger') - 4) * $servicio->price;
+        if($tviaje != 1){
+            $cuotaPax = $temppax->precio;
+        }else{
+            if($pax[0] > 4){
+                $cuotaPax = ($pax[0] - 4) * $servicio->price;
+            }
         }
 
-        
+        /*$cuotaPax = 0;
+        if($request->input('passenger') > 4){
+            $cuotaPax = ($request->input('passenger') - 4) * $servicio->price;
+        }*/
+
 
         $serviciog = DB::table('servicios')->where('id', 2)->first();
 
@@ -326,9 +339,24 @@ class TransferController extends Controller
                 $tviaj = Tviaje::find($form_data['tviajet']);
                 $veh = Vehicle::find($form_data['vehicle']);
                 $servs = Servicio::all();
+
+
+                $paxtra = Servicio::find(3);
+                $temppax = Passenger::find($form_data['passenger']);
+                $pax = explode(" ", $temppax->descripcion);
+
+                $cuotaPax = 0;
+                if($form_data['tviajet'] == 1){
+                    $cuotaPax = $temppax->precio;
+                }else{
+                    if($pax[0] > 4){
+                        $cuotaPax = ($pax[0] - 4) * $paxtra->price;
+                    }
+                }
+
                 $preciod = DB::table('precios')->where([['comuna_id', $comu->id],['tviaje_id', $tviaj->id],])->first();
 
-                return view('transfer.contact', compact('form_data', 'origen', 'destino', 'tviaj', 'veh', 'preciod', 'servs'));
+                return view('transfer.contact', compact('form_data', 'origen', 'destino', 'tviaj', 'veh', 'preciod', 'servs', 'cuotaPax'));
                 /*return view('transfer.contact')->with('form_data', $request->all());*/
             }
         }else{

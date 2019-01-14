@@ -30,7 +30,7 @@ class PreciosTableSeeder extends Seeder
         $t1 = Tviaje::where('descripcion', 'Traslado')->first();
         $t2 = Tviaje::where('descripcion', 'Tour')->first();
 
-        $precio = new Precio();
+        /*$precio = new Precio();
         $precio->comuna()->associate($c1);
         $precio->tviaje()->associate($t1);
         $precio->precio = '90000';
@@ -91,7 +91,7 @@ class PreciosTableSeeder extends Seeder
         $precio->tviaje()->associate($t1);
         $precio->precio = '80000';
         $precio->descripcion = 'Solo ida';
-        $precio->save();
+        $precio->save();*/
 
         $precio = new Precio();
         $precio->comuna()->associate($c1);
@@ -169,5 +169,7 @@ class PreciosTableSeeder extends Seeder
         $precio->precio = '60000';
         $precio->descripcion = 'full day 4 hrs. Incluye horas de traslado';
         $precio->save();
+
+        
     }
 }

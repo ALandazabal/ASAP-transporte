@@ -14,7 +14,9 @@ class PassengerController extends Controller
      */
     public function index()
     {
-        //
+        $passengers = Passenger::all();
+
+        return view('passenger.index')->with('passengers', $passengers);
     }
 
     /**
@@ -24,7 +26,7 @@ class PassengerController extends Controller
      */
     public function create()
     {
-        //
+        return view('passenger.create');
     }
 
     /**
@@ -35,7 +37,14 @@ class PassengerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate(['descripcion' => 'required', 'precio' => 'required']);
+
+        $temp = new Passenger();
+        $temp->descripcion = $request->get('descripcion');
+        $temp->precio = $request->get('precio');
+        $temp->save();
+
+        return redirect()->route('passenger.index')->with('success', 'Pasajero añadido');
     }
 
     /**
@@ -57,7 +66,9 @@ class PassengerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $passenger = Passenger::find($id);
+
+        return view('passenger.edit', compact('passenger'));
     }
 
     /**
@@ -69,7 +80,11 @@ class PassengerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate(['descripcion' => 'required', 'precio' => 'required']);
+
+        Passenger::find($id)->update($request->all());
+        
+        return redirect()->route('passenger.index')->with('success', 'Actualizado los datos del pasajero.');
     }
 
     /**
@@ -80,6 +95,8 @@ class PassengerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Passenger::find($id)->delete();
+                
+        return redirect()->route('passenger.index')->with('success', 'Eliminado el pasajero exitosamente.');
     }
 }

@@ -7,6 +7,7 @@ use App\Slider;
 use App\Tviaje;
 use App\Vehicle;
 use App\Precio;
+use App\Passenger;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -23,9 +24,10 @@ class HomeController extends Controller
         $vehicles = Vehicle::all();
         $comunas = Comuna::all();
         $tposviaje = Tviaje::all();
+        $passengers = Passenger::all();
         
         /*return view('index')->with('slider', $slider);*/
-        return view('index', compact('slider','vehicles','comunas', 'tposviaje'));
+        return view('index', compact('slider','vehicles','comunas', 'tposviaje', 'passengers'));
     }
 
     public function dashboard(Request $request)
@@ -39,7 +41,9 @@ class HomeController extends Controller
         $vehicles = Vehicle::all();
         $comunas = Comuna::all();
         $tposviaje = Tviaje::all();
+        $passengers = Passenger::all();
         $servicio = DB::table('servicios')->where('id', 3)->first();
+        $waitService = DB::table('servicios')->where('id', 1)->first();
 
         if($request->input('comuna') == 0){
             $preciod = DB::table('precios')->where([['comuna_id', $request->input('origin2')],['tviaje_id', $request->input('tviaje')],])->first();
@@ -61,19 +65,23 @@ class HomeController extends Controller
         }
 
         $paxtra = $servicio->price;
+        $waitser = $waitService->price;
 
-        if(!$preciod){
-            $success = "Lo sentimos, no hay precios para esta elección";
+        $temppax = DB::table('passengers')->where('id', $request->input('passenger'))->first();
+        $pax = explode(" ", $temppax->descripcion);
+
+        if($request->input('tviaje') == 1){
+            $success = $preciod->precio+$temppax->precio;
         }else{
             $cuotaPax = 0;
-            if($request->input('passenger') > 4){
-                $cuotaPax = ($request->input('passenger') - 4) * $paxtra;
+            if($pax[0] > 4){
+                $cuotaPax = ($pax[0] - 4) * $paxtra;
             }
             $success = $preciod->precio+$cuotaPax;
         }
-        
+                    
         /*return view('index')->with('slider', $slider);*/
-        return view('index', compact('slider','vehicles','comunas', 'tposviaje', 'success', 'sviaje', 'desde','hasta', 'paxtra'));
+        return view('index', compact('slider','vehicles','comunas', 'tposviaje', 'success', 'sviaje', 'desde','hasta', 'paxtra', 'waitser', 'passengers'));
     }
 
     public function getComunas(Request $request, $id){

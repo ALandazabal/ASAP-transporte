@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePreciosTable extends Migration
+class CreatePassengersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,10 @@ class CreatePreciosTable extends Migration
      */
     public function up()
     {
-        Schema::create('precios', function (Blueprint $table) {
+        Schema::create('passengers', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('comuna_id')->unsigned();
-            $table->integer('tviaje_id')->unsigned();
-
+            $table->string('descripcion');
             $table->float('precio');
-
-            $table->string('descripcion')->nullable();
-
-            $table->foreign('comuna_id')->references('id')->on('comunas');
-            $table->foreign('tviaje_id')->references('id')->on('tviajes');
             $table->timestamps();
         });
     }
@@ -35,6 +28,6 @@ class CreatePreciosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('precios');
+        Schema::dropIfExists('passengers');
     }
 }

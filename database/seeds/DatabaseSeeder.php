@@ -23,6 +23,8 @@ class DatabaseSeeder extends Seeder
 
 	    $this->call(MpagoTableSeeder::class);
 
+	    $this->call(PassengerTableSeeder::class);
+
 	    $this->call(PreciosTableSeeder::class);
 	}
 }

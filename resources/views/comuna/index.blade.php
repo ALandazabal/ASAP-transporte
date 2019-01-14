@@ -10,10 +10,10 @@
 			@endif
 			<div class="panel panel-default">
 				<div class="panel-body">
-					<div class="pull-left"><h3>Lista de Comunas</h3></div>
+					<div class="pull-left"><h3>Lista de Lugares</h3></div>
 					<div class="pull-right">
 						<div class="btn-group">
-							<a href="{{ route('comuna.create') }}" class="btn btn-info" >Añadir Comuna</a>
+							<a href="{{ route('comuna.create') }}" class="btn btn-info" >Añadir Lugar</a>
 						</div>
 					</div>
 					<div class="table-container">

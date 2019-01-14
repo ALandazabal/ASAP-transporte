@@ -119,10 +119,12 @@
 						      	<p>La cotización para el tipo de viaje: <?php echo '<label>'.$sviaje.'</label>'; ?> desde: <?php echo '<label>'.$desde.'</label>'; ?> hasta: <?php echo '<label>'.$hasta.'</label>'; ?>, tiene un valor de <?php echo '<label>'.$success.'</label>'; ?>
 						      	</p>
 						      	</br>
-						      	<p>Le recordamos que por cada pasajero extra (superior a 4), se le realizará una recarga de <?php echo '<label>'.$paxtra.'</label>'; ?></p>
+						      	<p>Le recordamos que en los Tours, por cada pasajero extra (superior a 4), se le realizará una recarga de <?php echo '<label>'.$paxtra.'</label>'; ?></p>
+
+						      	<p>Le recordamos que en los Transfers, tendra una recarga por espera en el aeropuerto de <?php echo '<label>'.$waitser.'</label>'; ?></p>
 						      </div>
 						      <div class="modal-footer">
-						        <button id="closeButtonModal" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						        <button id="closeButtonModal" type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
 						      </div>
 						    </div>
 						  </div>
@@ -140,10 +142,10 @@
 				<div class="form-group">
 					<select class="form-control" name="comuna" id="comuna">
 						<option>Punto de Origen</option>
-						{{-- <option value="0">Aeropuerto Internacional Comodoro Arturo Medino Benítez</option> --}}
+						{{-- <option value="0">Aeropuerto Internacional Comodoro Arturo Medino Benítez</option> 
 						@foreach( $comunas as $comuna)
 						<option value="{{ $comuna->id }}">{{ $comuna->name }}</option>
-						@endforeach
+						@endforeach--}}
 					</select>
 				</div>
 				<div class="form-group">
@@ -158,9 +160,12 @@
 				<div class="form-group">
 					<select class="form-control" name="passenger">
 						<option value="null">Cantidad de pasajeros</option>
-						@for($i = 1; $i < 9; $i++)
+						@foreach( $passengers as $passenger)
+						<option value="{{ $passenger->id }}">{{ $passenger->descripcion }}</option>
+						@endforeach
+						{{-- @for($i = 1; $i < 9; $i++)
 							<option value="{{ $i }}">{{ $i }}</option>
-						@endfor
+						@endfor --}}
 					</select>
 				</div>
 				<div class="form-group">

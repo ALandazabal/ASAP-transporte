@@ -24,7 +24,7 @@
 			</div>
 			<div class="panel-body">					
 				<div class="table-container">
-					<form method="post" action="{{ route('transfer.contact') }}"  role="form">
+					<form method="post" action="{{ route('transfer.contact') }}" role="form">
 						{{ csrf_field() }}
 						<div class="row">
 							<div class="col-xs-12">
@@ -49,6 +49,7 @@
 								<div class="form-group">
 									<label for="Tviajet">Tipo de servicio:</label>
 									<select class="form-control" name="tviajet" id="tviajet">
+										<option selected="selected">Seleccione un tipo de servicio</option>
 										@foreach( $tposviaje as $tviaje)
 										<option value="{{ $tviaje->id }}">{{ $tviaje->descripcion }}</option>
 										@endforeach
@@ -61,11 +62,11 @@
 								<div class="form-group">
 									<label for="Origin2">Origen:</label>
 									<select class="form-control" name="origin2" id="origin2">
-										<option selected="selected">Seleccione un origen</option>
-									{{-- <option value="0">Aeropuerto Internacional Comodoro Arturo Medino Benítez</option> --}}
+										{{-- <option selected="selected">Seleccione un origen</option>
+									<option value="0">Aeropuerto Internacional Comodoro Arturo Medino Benítez</option>
 									@foreach( $comunas as $comuna)
 										<option value="{{ $comuna->id }}">{{ $comuna->name }}</option>
-										@endforeach
+										@endforeach --}}
 									</select>
 									<input type="hidden" class="form-control input-sm" name="origin" value="Aeropuerto Internacional Comodoro Arturo Medino Benítez" required>
 								</div>
@@ -76,10 +77,23 @@
 								<div class="form-group">
 									<label for="Comunat">Destino:</label>
 									<select class="form-control" name="comunat" id="comunat">
-										<option>Seleccione primero un origen</option>
-										{{-- @foreach( $comunas as $comuna)
+										{{--<option>Seleccione un destino</option>
+										 @foreach( $comunas as $comuna)
 										<option value="{{ $comuna->id }}">{{ $comuna->name }}</option>
 										@endforeach --}}
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								<div class="form-group">
+									<label for="passenger">Número de pasajeros:</label>
+									<select class="form-control" name="passenger" id="passenger">
+										<option selected="selected">Seleccione una cantidad</option>
+										@foreach( $passengers as $passenger)
+										<option value="{{ $passenger->id }}">{{ $passenger->descripcion }}</option>
+										@endforeach
 									</select>
 								</div>
 							</div>
@@ -94,7 +108,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="row">
+						{{-- <div class="row">
 							<div class="col-xs-12">
 								<div class="form-group">
 									<label for="Vehicle">Vehículo:</label>
@@ -105,15 +119,16 @@
 									</select>
 								</div>
 							</div>
-						</div>
-						<div class="row">
+						</div> --}}
+						<input type="hidden" name="vehicle" value="{{ $vehicles->id }}">
+						{{-- <div class="row">
 							<div class="col-xs-8">
 								<div class="form-group">
 									<label for="passenger">Número de pasajeros:</label>
 									<input type="number" name="passenger" id="passenger" min="1" max="8" value="1">
 								</div>
 							</div>
-						</div>
+						</div> --}}
 						<div class="row">
 							<div class="col-xs-8">
 								<div class="form-group">

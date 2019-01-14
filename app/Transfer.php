@@ -22,6 +22,10 @@ class Transfer extends Model
         return $this->belongsTo('App\Precio');
     }
 
+    public function passenger(){
+        return $this->belongsTo('App\Passenger');
+    }
+
     public function mpago(){
         return $this->belongsTo('App\Mpago');
     }

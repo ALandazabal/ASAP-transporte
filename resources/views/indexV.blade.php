@@ -20,6 +20,35 @@
 		<h3>Servicio de Transfer</h3>
 		<span>Ofrecemos servicios de transporte para su empresa, organización o institución, con la seguridad de una empresa de trayectoria, compuesta por profesionales expertos en transporte.</span>
 	</div> --}}
+
+
+	{{-- Este es para calculo de los pasajeros en contact --}}
+	{{-- @if($form_data['passenger'] > 4 && $form_data['tviajet'] == 2)
+					@foreach( $servs as $serv)
+						@if($serv->id == 3)
+						<div class="row">
+							<div class="col-xs-6">
+								<div class="form-group">
+									<label for="name">Cargo por servicio: </label><label class="dataTransfer">{{ $serv->descripcion }}</label>
+								</div>
+							</div>
+							<div class="col-xs-6">
+								<div class="form-group">
+									<label for="email">Precio: </label><label class="dataTransfer">
+										<?php 
+											$pax = $form_data['passenger'] - 4;
+											$totalpax = $serv->price * $pax; 
+											echo $totalpax;
+										?>											
+									</label>
+								</div>
+							</div>
+						</div>
+						@endif
+					@endforeach
+				@endif --}}
+
+
 </div>
 <div class="container-fluid  text-center cont-2 ext">
 	{{-- <h2>Vehículos Disponibles</h2> --}}
