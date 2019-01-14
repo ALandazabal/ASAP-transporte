@@ -42,6 +42,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::resource('sliderconfig', 'SliderController');
     Route::resource('comuna', 'ComunaController');
     Route::resource('vehicle', 'VehicleController');
+    Route::resource('service', 'ServiceController');
     //Transfers
     Route::get('transfer', 'TransferController@index')->name('transfer.index');
     Route::patch('transfer/{transfer}', 'TransferController@update')->name('transfer.update');

@@ -21,21 +21,19 @@
 
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-title">Editar Comuna</h3>
+				<h3 class="panel-title">Editar Servicio Adicional</h3>
 			</div>
 			<div class="panel-body">
 				<div class="table-container">
-					<form method="post" action="{{ route('comuna.update', $comuna->id) }}" role="form">
+					<form method="post" action="{{ route('service.update', $service->id) }}" role="form">
 						{{ csrf_field() }}
 						<input name="_method" type="hidden" value="PATCH">
-						<label for="Name">Nombre</label>
-						<input type="text" class="form-control" name="name" value="{{ $comuna->name }}">
-						<label for="Distance">Distancia</label>
-						<input type="number" step=0.01 class="form-control" name="distance" value="{{ $comuna->distance }}">
-						<label for="Coords">Coordenadas</label>
-						<input type="text" class="form-control" name="coords" value="{{ $comuna->coords }}">
+						<label for="Descripcion">Descripcion</label>
+						<input type="text" class="form-control" name="descripcion" value="{{ $service->descripcion }}">
+						<label for="Precio">Precio</label>
+						<input type="number" min=0 class="form-control" name="price" value="{{ $service->price }}">
 						<button type="submit" class="btn btn-success">Editar</button>
-						<a href="{{ route('comuna.index') }}" class="btn btn-info" >Atrás</a>
+						<a href="{{ route('service.index') }}" class="btn btn-info" >Atrás</a>
 					</form>
 				</div>
 			</div>

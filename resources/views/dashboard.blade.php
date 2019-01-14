@@ -91,6 +91,19 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-md-4">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h5 class="panel-title">Administrar servicios adicionales</h5>
+                                    </div>
+                                    <div class="panel-body">
+                                        Añade, modifica, elimina los servicios adicionales ofertados.<br>
+                                        <center>
+                                        <a href="{{ route('service.index') }}" class="btn btn-default">Ir!</a>
+                                        </center>
+                                    </div>
+                                </div>
+                            </div>
                         @else
                             <div class="col-md-4">
                                 <div class="panel panel-default">
