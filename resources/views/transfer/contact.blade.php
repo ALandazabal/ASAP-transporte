@@ -89,7 +89,7 @@
 						<div class="row">
 							<div class="col-xs-6 col-xs-push-6">
 								<div class="form-group">
-									<label for="email">Precio: </label><label class="dataTransfer">{{ $preciod->precio }}</label>
+									<label for="email">Precio: </label><label class="dataTransfer">{{ number_format($preciod->precio,0,',','.')." CLP" }}</label>
 								</div>
 							</div>
 						</div>
@@ -101,7 +101,7 @@
 							</div>
 							<div class="col-xs-6">
 								<div class="form-group">
-									<label for="email">Precio: </label><label class="dataTransfer">{{ $cuotaPax }}</label>
+									<label for="email">Precio: </label><label class="dataTransfer">{{ number_format($cuotaPax,0,',','.')." CLP" }}</label>
 									<?php $totalpass = $cuotaPax; ?>
 								</div>
 							</div>
@@ -119,7 +119,7 @@
 							</div>
 							<div class="col-xs-6">
 								<div class="form-group">
-									<label for="email">Precio: </label><label class="dataTransfer">{{ $serv->price }}</label>
+									<label for="email">Precio: </label><label class="dataTransfer">{{ number_format($serv->price,0,',','.')." CLP" }}</label>
 									<?php $totalg = $serv->price; ?>
 								</div>
 							</div>
@@ -133,7 +133,7 @@
 									<label for="email">Total: </label><label class="dataTransfer">
 										<?php 
 											$total = $preciod->precio + $totalg + $totalpass;
-											echo $total;
+											echo number_format($total,0,',','.')." CLP";
 										?>											
 									</label>
 								</div>

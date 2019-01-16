@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -26,6 +27,7 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = '/dashboard';
+    /*protected $redirectTo = '/';*/
 
     /**
      * Create a new controller instance.
@@ -34,11 +36,29 @@ class LoginController extends Controller
      */
     public function __construct()
     {
+        //$this->redirectTo = url()->previous();
         $this->middleware('guest')->except('logout');
     }
 
     protected function authenticated($request, $user) {
-        if( $request->session()->has('transfer_form') )
+        if( $request->session()->has('transfer_form') ){
             return redirect()->route('transfer.create');
+        }
+
+        return redirect(session('link'));
     }
+
+    public function showLoginForm()
+    {
+        session(['link' => url()->previous()]);
+        return view('auth.login');
+    }
+/*
+    public function redirectTo()
+    {
+        if (session()->has('redirect_to'))
+            return session()->pull('redirect_to');
+
+        return $this->redirectTo;
+    }*/
 }

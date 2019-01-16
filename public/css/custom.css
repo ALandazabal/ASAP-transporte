@@ -44,7 +44,7 @@ b, h1, h2, h3{
 /*------------- Header -------------*/
 .navbar-brand{
 	height: auto;
-	padding: 10px 0 0 15px;
+	padding: 10px 0 10px 15px;
 }
 .nav.navbar-nav{
 	margin: 20px 0px 0px;
@@ -466,4 +466,10 @@ p{
 }
 .fa-whatsapp{
 	font-size: 25px;
+}
+.content, .filters{
+	margin-top: 15px;
+}
+#aditional-note{
+	display: none;
 }

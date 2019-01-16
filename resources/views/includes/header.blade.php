@@ -52,7 +52,8 @@
 		<div class="col-md-5 collapse navbar-collapse navbar-ex1-collapse">
 			<ul class="nav navbar-nav navbar-right">
 		        @guest
-		            <li><a href="{{ route('login') }}">Inicia Sesión</a></li>
+		            {{-- <li><a href="{{ route('login') }}">Inicia Sesión</a></li> --}}
+		            <li><a href="{{ url('/login?redirect_to='.url()->current()) }}">Inicia Sesión</a></li>
 		            <li><a href="{{ route('register') }}">Regístrate</a></li>
 		            @else
 					<li class="dropdown">

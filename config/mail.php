@@ -62,7 +62,7 @@ return [
         'name' => env('MAIL_FROM_NAME', 'ASAP'),
     ],*/
     'from' => [
-        'address' => 'transfers.asap@gmail.com',
+        'address' => 'info@transportesasap.cl',
         'name' => 'ASAP transportes',
     ],
 

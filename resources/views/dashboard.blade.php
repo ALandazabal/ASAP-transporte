@@ -1,6 +1,6 @@
 @extends('layouts.users')
 @section('content')
-    <div class="container">
+    <div class="container content">
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">

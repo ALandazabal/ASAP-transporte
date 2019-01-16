@@ -156,6 +156,7 @@
 						<option value="{{ $comuna->id }}">{{ $comuna->name }}</option>
 						@endforeach --}}
 					</select>
+					<label id="aditional-note">Algunas comunas tienen un recargo adicional</label>
 				</div>
 				<div class="form-group">
 					<select class="form-control" name="passenger">

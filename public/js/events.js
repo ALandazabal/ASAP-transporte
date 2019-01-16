@@ -3,12 +3,13 @@ $(document).ready( function(){
 });
 
 $("#tviaje").change(function(event){
-	//$("#origin2").empty();
+	$("#origin2").empty();
 	$("#comuna").empty();
-
-	/*if($("#comuna").val() != 0){
-		$("#origin2").append("<option value='0'>Aeropuerto Internacional Comodoro Arturo Medino Benítez</option>");
-	}else{*/
+	$("#aditional-note").hide();
+	if(event.target.value == 1){
+		//$("#origin2").append("<option value='0'>Aeropuerto Internacional Comodoro Arturo Medino Benítez</option>");
+		$("#aditional-note").show();
+	}/*else{*/
 
 		$.get("comunas/"+event.target.value+"", function(response,precio){
 		/*$.get("comunas/1", function(response,precio){*/

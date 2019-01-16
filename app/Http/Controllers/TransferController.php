@@ -219,9 +219,33 @@ class TransferController extends Controller
         /*Mail::to($request->get('email'))->send(new Transfer($request->get('name')));*/
         //Mail::to($request->get('email'))->send(new TransferMail());
 
-        Mail::send('mails.demo', $request->all(), function($msj){
-            $msj->subject('Correo de prueba');
-            $msj->to('angelica.informatik@gmail.com');
+        $viaje = Tviaje::find($tviaje);
+        $date = date("d/m/Y", strtotime($request->get('date')))." ".$request->get('time');
+        $from = Comuna::find($request->get('origin'));
+        $to = Comuna::find($request->get('comuna'));
+
+        $mail = array(
+            'name' => $request->get('name'),
+            'email' => $request->get('email'),
+            'type' => $viaje->descripcion,
+            'date' => $date,
+            'from' => $from->name,
+            'to' => $to->name,
+            'description' => $preciod->descripcion,
+            'suitcase' => $request->input('suitcase'),
+            'travelprice' => number_format($preciod->precio,0,',','.'),
+            'passengers' => $pax[0],
+            'passengerprice' => number_format($cuotaPax,0,',','.'),
+            'guideprice' => number_format($cuotaGuia,0,',','.'),
+            'total' => number_format($total,0,',','.')
+        );
+
+        /*Mail::send('mails.transfermail', $request->all(), function($msj){*/
+        Mail::send('mails.transfermail', $mail, function($msj){
+            $msj->subject('Pago de servicio realizado');
+            $msj->from('info@transportesasap.cl');
+            $msj->to($request->get('email'));
+            $msj->cc('info@transportesasap.cl');
         });
 
         //\Mail::to('angelica.informatik@gmail.com')->send(new TransferMail($request->get('email')));
